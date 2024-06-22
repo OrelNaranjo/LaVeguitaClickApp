@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row product-card">
+    <div class="col-md-4">
+      <img src="{{ product.imagen }}" alt="Product Image" class="img-fluid" />
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-8">
+          <h4>
+            {{ product.nombre }}
+            <p>{{ product.descontinuado ? 'Descontinuado' : '' }}</p>
+          </h4>
+          <p class="sku">{{ product.sku }}</p>
+          <p class="price">{{ product.precio | currency: '$' : 'symbol' : '1.0-2' : 'es-CL' }}</p>
+        </div>
+        <div class="col-md-4 text-end">
+          <qrcode [qrdata]="product.codigo_barra" [width]="100" [errorCorrectionLevel]="'M'"></qrcode>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 d-flex flex-column">
+      <div class="product-info-card flex-fill">
+        <h6>Dimensiones</h6>
+        <ul>
+          <li>Formato: {{ product.embalaje }}</li>
+          <li>Peso: {{ product.peso }}</li>
+          <li>Ancho: {{ product.ancho }}</li>
+          <li>Alto: {{ product.alto }}</li>
+          <li>Largo: {{ product.largo }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex flex-column">
+      <div class="product-info-card flex-fill">
+        <h6>Existencias</h6>
+        <ul>
+          <li>Stock mínimo: {{ product.stock_minimo }}</li>
+          <li>Stock máximo: {{ product.stock_maximo }}</li>
+        </ul>
+      </div>
+      <div class="product-info-card flex-fill">
+        <h6>Operaciones</h6>
+        <ul>
+          <li>Se vende: {{ product.se_vende ? 'Sí' : 'No' }}</li>
+          <li>Se compra: {{ product.se_compra ? 'Sí' : 'No' }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

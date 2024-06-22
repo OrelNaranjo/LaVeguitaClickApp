@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th>RUT</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Cargo</th>
+      <th>Dirección</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (employee of employees$(); track employee.id) {
+      <tr>
+        <td>{{ employee.run }}</td>
+        <td>{{ employee.first_name }}</td>
+        <td>{{ employee.last_name }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.phone }}</td>
+        <td>{{ employee.employeeDetails[0].position }}</td>
+        <td>{{ employee.addresses[0].street }}, {{ employee.addresses[0].zip_code }}</td>
+        <td>
+          <button class="btn-primary" [routerLink]="['/employee', employee.id, 'view']">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button class="btn-warning" [routerLink]="['/employee', employee.id, 'edit']">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="btn-danger" (click)="deleteEmployee(employee.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

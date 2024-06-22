@@ -1,0 +1,80 @@
+@import 'vars';
+
+.logo {
+  background-color: $bg-header;
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .logo-text {
+    text-wrap: none;
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: $txt-green;
+    font-family: 'Kalam';
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .logo-img {
+    padding: 0.5rem;
+    width: 50px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.search {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+input[type='text'] {
+  padding-left: 30px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  height: 25px;
+  box-shadow: none;
+
+  &::placeholder {
+    color: $txt-input;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid #f90;
+    color: $txt-input;
+  }
+}
+
+.title {
+  position: absolute;
+  bottom: 30px;
+  color: #fff;
+  transform: translateX(270px);
+  transition: transform 0.5s ease-in-out;
+}
+
+.title-aside-hidden {
+  transform: translateX(50px);
+  transition: transform 0.5s ease-in-out;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  color: $input-icon-color;
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  font-size: 1.3rem;
+}

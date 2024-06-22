@@ -1,0 +1,65 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+  <div class="form-row">
+    <label for="barcode">Código de barras:</label>
+    <input id="barcode" type="text" formControlName="barcode" placeholder="Código de barras" />
+
+    <label for="sku">SKU:</label>
+    <input id="sku" type="text" formControlName="sku" placeholder="SKU" />
+  </div>
+
+  <div class="form-row">
+    <label for="name">Nombre:</label>
+    <input id="name" type="text" formControlName="name" placeholder="Nombre" />
+  </div>
+
+  <div class="form-row">
+    <label for="description" class="textarea-label">Descripción:</label>
+    <textarea id="description" formControlName="description" placeholder="Descripción"></textarea>
+  </div>
+
+  <div class="form-row">
+    <label for="price">Precio:</label>
+    <input id="price" type="number" formControlName="price" placeholder="Precio" min="0" />
+
+    <label for="cost">Costo:</label>
+    <input id="cost" type="number" formControlName="cost" placeholder="Costo" min="0" />
+  </div>
+
+  <div class="form-row">
+    <label for="weight_kg">Peso (kg):</label>
+    <input id="weight_kg" type="number" formControlName="weight_kg" placeholder="Peso en kg" min="0" />
+  </div>
+
+  <div class="form-row">
+    <label>Categorías:</label>
+    <div class="custom-select" (click)="toggleDropdown()">
+      <div class="select-selected">{{ getSelectedCategoryName() }}</div>
+      @if (dropdownOpen) {
+        <div class="select-items" (click)="$event.stopPropagation()">
+          @for (category of categories$(); track category.id) {
+            <div class="category" (click)="selectCategory(category); $event.stopPropagation()">
+              {{ category.name }}
+            </div>
+            @for (subcategory of category.childrens; track subcategory.id) {
+              <div class="subcategory" (click)="selectCategory(subcategory); $event.stopPropagation()">
+                {{ subcategory.name }}
+              </div>
+            }
+          } @empty {
+            <div class="no-categories">No hay categorías disponibles</div>
+          }
+        </div>
+      }
+    </div>
+    <button type="button" (click)="addCategory(selectedCategory)">Agregar</button>
+  </div>
+
+  <div class="form-row">
+    <label for="images">Imágenes:</label>
+    <input class="upload-images" id="images" type="file" (change)="onFileChange($event)" multiple />
+  </div>
+
+  <div class="form-row text-center">
+    <button class="text-center" type="submit">Guardar</button>
+  </div>
+</form>

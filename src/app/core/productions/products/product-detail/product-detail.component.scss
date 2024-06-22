@@ -1,0 +1,53 @@
+.product-card {
+  margin-bottom: 20px;
+}
+
+.product-info-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.product-info-card h6 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h4 {
+  white-space: nowrap;
+  p {
+    display: inline;
+    font-size: 0.7rem;
+    background-color: hsl(0, 100%, 32%);
+    margin-left: 5px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 5px;
+  }
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sku {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #666;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-right: 10px;
+}
+
+.product-detail {
+  height: 100%;
+}

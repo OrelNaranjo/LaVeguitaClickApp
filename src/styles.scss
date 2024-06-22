@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+@import 'vars';
+
+// Principal
+body {
+  color: #333;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Rubik';
+}
+
+html {
+  height: 100%;
+}
+
+//Botones
+button,
+.btn,
+input::file-selector-button {
+  justify-content: center;
+  border: none;
+  color: white;
+  display: inline-flex;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: Kalam, sans-serif;
+  font-weight: 500;
+  height: 35px;
+  background-color: $btn-green;
+  padding: 8px 15px;
+}
+
+.btn span {
+  position: relative;
+  top: 2px;
+  padding-right: 3px;
+}
+
+button:hover,
+input::file-selector-button:hover {
+  background-color: $btn-green-hover;
+}
+
+.btn-warning {
+  background-color: #e6e600;
+}
+
+.btn-warning:hover {
+  background-color: #cccc00;
+}
+
+.btn-danger {
+  background-color: #f44336;
+}
+
+.btn-danger:hover {
+  background-color: #da190b;
+}
+
+.mat-icon {
+  vertical-align: middle;
+}
+
+// Tablas
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4caf50;
+  color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table .table-info {
+  background-color: #4caf50;
+  color: white;
+}
+
+table .table-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+table td .mat-icon {
+  font-size: 15px !important;
+}
+
+table td button {
+  padding: 5px !important;
+  margin: 5px;
+  height: 25px;
+  width: 25px;
+}
+
+// Texto
+
+.text-end {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-start {
+  text-align: left !important;
+}
+
+.text-danger {
+  color: #f44336;
+}
+
+.msg-error {
+  color: #f44336;
+  font-size: 12px;
+  padding: 5px 0;
+  margin: 0;
+  transition: all 0.5s;
+}

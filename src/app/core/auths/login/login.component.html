@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card">
+    <div class="logo">
+      <a routerLink="/home" class="logo-link">
+        <img src="/shared/logotipo.svg" alt="logo" type="svg/xml" class="logo-img" />
+        <span class="logo-text">La VeguitaClick</span>
+      </a>
+    </div>
+    <div class="form-items">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="input-container">
+          <mat-icon class="input-icon person">person</mat-icon>
+          <input type="text" formControlName="username" placeholder="Nombre de usuario" autocomplete="username" />
+        </div>
+        <div class="input-container">
+          <mat-icon class="input-icon lock">lock</mat-icon>
+          <input type="password" formControlName="password" placeholder="Contraseña" autocomplete="current-password" />
+        </div>
+        <div class="error">
+          @for (error of errors; track error) {
+            <p class="msg-error">{{ error }}</p>
+          }
+        </div>
+        <div class="checkbox-container"><input type="checkbox" formControlName="remember" id="remember" />Mantener sesión iniciada.</div>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+</div>

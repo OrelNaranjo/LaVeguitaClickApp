@@ -1,0 +1,38 @@
+@import 'vars';
+
+.error-content {
+  text-align: center;
+  padding: 30px;
+}
+
+.error-title {
+  font-size: 6em;
+  color: $bg-header;
+  margin: 0;
+}
+
+.error-subtitle {
+  font-size: 2em;
+  color: $txt-input;
+  margin: 0;
+}
+
+.error-description {
+  color: $txt-input;
+  margin: 20px 0;
+}
+
+.error-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: $txt-primary;
+  background-color: $btn-green;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $btn-green-hover;
+  }
+}

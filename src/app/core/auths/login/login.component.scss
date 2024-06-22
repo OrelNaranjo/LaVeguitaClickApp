@@ -1,0 +1,160 @@
+@import 'vars';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(0deg, #ccff80 0%, #f7fac8 100%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background-image: linear-gradient(-225deg, #3d4e81 0%, #6e7ff3 48%, #3d4e81 100%);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
+}
+
+.logo {
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .logo-text {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: hsl(70, 90%, 45%);
+    font-family: 'Kalam';
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+  }
+
+  .logo-img {
+    padding: 0.5rem;
+    width: 50px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-items {
+  padding: 10px;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: calc(300px - 32px);
+  height: 25px;
+  border: none;
+  outline: none;
+  padding-left: 32px;
+  color: $txt-input;
+}
+
+input[type='password'] {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  color: $txt-primary;
+  padding-top: 10px;
+}
+
+input[type='checkbox'] {
+  margin-left: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border: none;
+  background-color: white;
+  position: relative;
+  border-radius: 2px;
+
+  &:checked {
+    background-color: $txt-green;
+    border: 2px solid white;
+    border-radius: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 7px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      top: 1px;
+      left: 4px;
+    }
+  }
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-icon {
+  color: $input-icon-color;
+  position: absolute;
+  left: 5px;
+  font-size: 1.3rem;
+}
+
+.input-icon.person {
+  top: 2px;
+}
+
+.input-icon.lock {
+  top: 23px;
+}
+
+button {
+  width: 300px;
+  height: 30px;
+  border: none;
+  background-color: $btn-green;
+  color: $txt-primary;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@media (max-width: 551px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    background-image: linear-gradient(-225deg, #3d4e81 0%, #6e7ff3 48%, #3d4e81 100%);
+  }
+
+  .card {
+    display: flex;
+    padding: none;
+    border-radius: none;
+    background-image: none;
+    box-shadow: none;
+  }
+}

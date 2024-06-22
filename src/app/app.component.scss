@@ -1,0 +1,57 @@
+@import 'vars';
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'aside main'
+    'footer footer';
+  grid-template-rows: 180px auto 50px;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+  position: relative;
+  background-color: whitesmoke;
+  transition: grid-template-columns 0.5s ease-in-out;
+}
+
+.grid-aside {
+  grid-area: aside;
+  background-color: white;
+  width: 220px;
+  margin-top: -100px;
+  padding-bottom: 20px;
+  z-index: 2;
+  transition: transform 0.5s ease-in-out;
+}
+
+.grid-header {
+  grid-area: header;
+  background-color: $bg-header;
+  z-index: 1;
+  position: relative;
+}
+
+.grid-main {
+  grid-area: main;
+  margin-left: 30px;
+  margin-top: -50px;
+  margin-bottom: 30px;
+  width: calc(100% - 60px);
+  z-index: 2;
+  background-color: white;
+  border-radius: 5px;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.8)) drop-shadow(0px -5px 5px transparent);
+}
+
+.grid-footer {
+  grid-area: footer;
+  background-color: $bg-header;
+}
+
+.container {
+  padding: 30px !important;
+}
+
+.grid-aside-hidden {
+  transform: translateX(-100%);
+}
