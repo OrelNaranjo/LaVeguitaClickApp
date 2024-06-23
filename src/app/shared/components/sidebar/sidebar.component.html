@@ -27,12 +27,12 @@
       </a>
       <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'sale' }">
         <li class="sidebar-item">
-          <a routerLink="/invoices" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/sales/invoice" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
             <span class="sidebar-text">Facturas</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/receipts" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/sales/receipt" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
             <span class="sidebar-text">Boletas</span>
           </a>
         </li>

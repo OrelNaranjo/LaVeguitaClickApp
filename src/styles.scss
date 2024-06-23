@@ -24,6 +24,17 @@ body {
   font-family: 'Rubik';
 }
 
+:host {
+  display: flex;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-layout {
+  height: 100vh;
+}
+
 //Botones
 button,
 .btn,

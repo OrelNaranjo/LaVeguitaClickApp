@@ -27,6 +27,7 @@
     "@angular/router": "^18.0.0",
     "angularx-qrcode": "^17.0.1",
     "jwt-decode": "^4.0.0",
+    "ng-zorro-antd": "18.0.0",
     "prettier": "^3.3.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

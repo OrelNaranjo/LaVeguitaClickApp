@@ -57,9 +57,12 @@ input[type='text'] {
 .title {
   position: absolute;
   bottom: 30px;
-  color: #fff;
   transform: translateX(270px);
   transition: transform 0.5s ease-in-out;
+
+  h1 {
+    color: #fff;
+  }
 }
 
 .title-aside-hidden {
