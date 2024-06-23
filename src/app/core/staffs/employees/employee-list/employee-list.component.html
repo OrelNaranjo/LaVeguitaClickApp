@@ -1,18 +1,19 @@
-<table>
-  <thead>
-    <tr>
-      <th>RUT</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Email</th>
-      <th>Teléfono</th>
-      <th>Cargo</th>
-      <th>Dirección</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    @for (employee of employees$(); track employee.id) {
+<div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>RUT</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Cargo</th>
+        <th>Dirección</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (employee of employees$(); track employee.id) {
       <tr>
         <td>{{ employee.run }}</td>
         <td>{{ employee.first_name }}</td>
@@ -33,6 +34,7 @@
           </button>
         </td>
       </tr>
-    }
-  </tbody>
-</table>
+      }
+    </tbody>
+  </table>
+</div>

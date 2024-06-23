@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "La VeguitaCLick UI",
   "author": "Orel Naranjo Dominguez",
+  "licence": "UNLICENSED",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
