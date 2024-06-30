@@ -1,0 +1,77 @@
+<div class="create-invoice-container">
+  <form nz-form [formGroup]="createInvoiceForm" (ngSubmit)="submitInvoice()">
+    <nz-form-item>
+      <nz-form-label nzSpan="4" nzRequired>Cliente</nz-form-label>
+      <nz-form-control nzSpan="14">
+        <nz-select formControlName="customer" nzShowSearch nzPlaceHolder="Seleccionar cliente">
+          @for (customer of customers; track $index) {
+            <nz-option [nzLabel]="customer.first_name" [nzValue]="customer"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label nzSpan="4" nzRequired>Producto</nz-form-label>
+      <nz-form-control nzSpan="10">
+        <nz-select
+          #selectInput
+          formControlName="selectedProduct"
+          nzShowSearch
+          nzAllowClear
+          nzPlaceHolder="Seleccionar producto"
+          (keydown.enter)="focusQuantityInput()"
+        >
+          @for (product of filteredProducts; track $index) {
+            <nz-option [nzLabel]="product.name" [nzValue]="product"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+      <nz-form-control nzSpan="4">
+        <input formControlName="quantity" placeholder="Cantidad" #quantityInput type="number" min="1" (keydown.enter)="focusSelectInput()" />
+      </nz-form-control>
+      <nz-form-control nzSpan="2">
+        <button nz-button nzType="primary" (click)="addProduct()">Agregar</button>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-table #productTable [nzData]="addedProducts" [nzBordered]="true">
+      <thead>
+        <tr>
+          <th nzWidth="50%">Producto</th>
+          <th nzWidth="10%">Cantidad</th>
+          <th nzWidth="10%">Costo</th>
+          <th nzWidth="10%">Precio</th>
+          <th nzWidth="10%">Subtotal</th>
+          <th nzWidth="10%">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (detail of addedProducts; track $index) {
+          <tr>
+            <td>{{ detail.product.name }}</td>
+            <td>{{ detail.quantity }}</td>
+            <td>{{ detail.cost | currency }}</td>
+            <td>{{ detail.price | currency }}</td>
+            <td>{{ detail.subtotal | currency }}</td>
+            <td>
+              <button nz-button nzType="danger" (click)="removeProduct(detail)">Eliminar</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </nz-table>
+
+    <nz-form-item class="total-row">
+      <nz-form-label nzSpan="4">Total</nz-form-label>
+      <nz-form-control nzSpan="14">
+        <span class="total">{{ total | currency }}</span>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control nzSpan="18" nzOffset="4">
+        <button nz-button nzType="primary" [disabled]="!createInvoiceForm.valid">Crear Factura</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

@@ -1,0 +1,68 @@
+<div nz-row>
+  <div nz-col>
+    <nz-form-item>
+      <nz-form-label nzFor="producto">Producto</nz-form-label>
+      <nz-form-control>
+        <nz-select #productSelect nzShowSearch nzPlaceHolder="Seleccione un producto" [(ngModel)]="selectedProduct">
+          @for (product of products$(); track product.id) {
+            <nz-option [nzLabel]="product.sku + '   -   ' + product.name" [nzValue]="product"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col>
+    <nz-form-item>
+      <nz-form-label nzFor="cantidad">Cantidad</nz-form-label>
+      <nz-form-control>
+        <input nz-input type="number" id="cantidad" name="cantidad" [(ngModel)]="selectedQuantity" [min]="1" required />
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+  <div nz-col>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="default" (click)="agregarProducto()">Agregar Producto</button>
+      </nz-form-control>
+    </nz-form-item>
+  </div>
+</div>
+<br />
+<nz-table #dynamicTable [nzData]="receiptDetails$()" nzBordered>
+  <thead>
+    <tr>
+      <th style="width: 100px">SKU</th>
+      <th>Producto</th>
+      <th style="width: 100px">Cantidad</th>
+      <th style="width: 100px">Costo</th>
+      <th style="width: 100px">Precio</th>
+      <th style="width: 100px">Subtotal</th>
+      <th style="width: 100px">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (detail of receiptDetails$(); track $index) {
+      <tr>
+        <td>{{ detail.product.sku }}</td>
+        <td>{{ detail.product.name }}</td>
+        <td class="text-center">{{ detail.quantity }}</td>
+        <td class="text-end">{{ detail.cost | currency }}</td>
+        <td class="text-end">{{ detail.price | currency }}</td>
+        <td class="text-end">{{ detail.subtotal | currency }}</td>
+        <td>
+          <button class="btn-danger" (click)="eliminarProducto(detail)">
+            <span nz-icon nzType="delete" nzTheme="outline"></span>
+          </button>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td class="text-center" colspan="6">No hay productos</td>
+      </tr>
+    }
+  </tbody>
+</nz-table>
+<br />
+<div>Total: {{ total$() | currency }}</div>
+<br />
+<button nz-button nzType="link" (click)="enviarBoleta()">Generar</button>

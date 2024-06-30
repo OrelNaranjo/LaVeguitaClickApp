@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent, HeaderComponent, SidebarComponent } from './shared';
-import { LoginComponent } from './core';
-import { AsyncPipe } from '@angular/common';
-import { AuthService } from './core/auths/auth.service';
+import { FooterComponent, HeaderComponent, SidebarComponent } from './layout';
+import { LoginComponent } from './modules';
+import { AuthService } from '@core/services';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, SidebarComponent, LoginComponent, AsyncPipe],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, SidebarComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'LaVeguitaClickAPP';
 
   constructor(private authService: AuthService) {}

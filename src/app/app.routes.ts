@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from './shared';
-import { HomeComponent } from './core';
+import { PageNotFoundComponent } from './layout';
+import { HomeComponent } from './modules';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'auth', loadChildren: () => import('./core/auths/auth.routes').then(m => m.authRoutes) },
-  { path: 'production', loadChildren: () => import('./core/productions').then(m => m.productionRoutes) },
-  { path: 'staffs', loadChildren: () => import('./core/staffs/staff.routes').then(m => m.staffsRoutes) },
-  { path: 'sales', loadChildren: () => import('./core/sales').then(m => m.salesRoutes) },
+  { path: 'auth', loadChildren: () => import('./modules/auths/auth.routes').then((m) => m.authRoutes) },
+  { path: 'production', loadChildren: () => import('./modules/productions').then((m) => m.productionRoutes) },
+  { path: 'staffs', loadChildren: () => import('./modules/staffs/staff.routes').then((m) => m.staffsRoutes) },
+  { path: 'sales', loadChildren: () => import('./modules/sales').then((m) => m.salesRoutes) },
   { path: '**', component: PageNotFoundComponent },
 ];

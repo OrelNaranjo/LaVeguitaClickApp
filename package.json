@@ -1,6 +1,6 @@
 {
   "name": "la-veguita-click-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "La VeguitaCLick UI",
   "author": "Orel Naranjo Dominguez",
   "licence": "UNLICENSED",
@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@ngxs/store": "^18.0.0",
     "angularx-qrcode": "^17.0.1",
     "jwt-decode": "^4.0.0",
     "ng-zorro-antd": "18.0.0",

@@ -1,0 +1,116 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+.product-form {
+  display: grid;
+  row-gap: 10px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-row label {
+  margin: 0 10px;
+}
+
+.form-row input {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.form-row > input[type='text'],
+.form-row > input[type='number'],
+.form-row > textarea,
+.form-row > select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 10px;
+  border: 1px solid #767676;
+  border-radius: 2px;
+}
+
+.form-row label.textarea-label {
+  align-self: flex-start;
+}
+
+.form-row > textarea {
+  resize: vertical;
+}
+
+.form-row > input[type='checkbox'] {
+  width: auto;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row.text-center {
+  justify-content: center;
+}
+
+// Custom Select
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-selected {
+  border-radius: 2px;
+  padding: 10px;
+  border: 1px solid #767676;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #767676;
+}
+
+.select-items {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 99;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.select-items div {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.select-items div:hover {
+  background-color: #e9e9e9;
+}
+
+.no-categories {
+  padding: 0.5rem;
+  color: #999;
+}
+
+.category {
+  font-weight: bold;
+}
+
+.subcategory {
+  padding-left: 25px !important;
+}

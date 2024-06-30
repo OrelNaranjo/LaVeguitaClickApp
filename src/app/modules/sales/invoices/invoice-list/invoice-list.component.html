@@ -1,0 +1,28 @@
+<div class="invoice-container">
+  <nz-table #invoiceTable [nzData]="invoices" [nzBordered]="true">
+    <thead>
+      <tr>
+        <th nzWidth="10%">#</th>
+        <th nzWidth="20%">Cliente</th>
+        <th nzWidth="20%">Fecha</th>
+        <th nzWidth="20%">Total</th>
+        <th nzWidth="30%">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (invoice of invoices; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ invoice.total }}</td>
+          <td>{{ invoice.date | date }}</td>
+          <td>{{ invoice.total | currency }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="viewInvoice(invoice)">Ver</button>
+            <button nz-button nzType="default" (click)="editInvoice(invoice)">Editar</button>
+            <button nz-button nzType="dashed" (click)="deleteInvoice(invoice)">Eliminar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+</div>

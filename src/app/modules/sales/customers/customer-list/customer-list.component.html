@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>RUN</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Descripción</th>
+      <th>Dirección</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (customer of customers$(); track customer.id) {
+      <tr>
+        <td>{{ customer.rut }}</td>
+        <td>{{ customer.first_name }}</td>
+        <td>{{ customer.last_name }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.description }}</td>
+        <td>{{ customer.addresses[0].street + ' ' + customer.addresses[0].commune.name }}</td>
+
+        <td><button (click)="editCustomer(customer)">Edit</button></td>
+      </tr>
+    }
+  </tbody>
+</table>

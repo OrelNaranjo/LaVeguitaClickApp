@@ -1,0 +1,39 @@
+div[nz-row] {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nz-form-item {
+  margin-bottom: 0.5rem; // Reduce el margen inferior de los elementos de formulario
+}
+
+nz-form-control,
+nz-form-label {
+  padding: 0; // Elimina el padding para reducir el espacio
+}
+
+nz-select {
+  max-height: 2.5rem; // Ajusta la altura máxima del select
+  .ant-select-selector {
+    height: 2.5rem; // Asegura que el selector dentro del nz-select también se ajuste
+  }
+}
+
+input[nz-input] {
+  height: 2rem; // Ajusta la altura de los inputs
+  border: 1px solid #d9d9d9; // Corrige la sintaxis para añadir un borde
+  padding: 0 0.5rem; // Añade un padding horizontal
+
+  &:focus {
+    outline: none; // Elimina el contorno al enfocar
+    border-color: #40a9ff; // Cambia el color del borde al enfocar
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2); // Añade una sombra de enfoque
+  }
+}
+
+.ant-select {
+  border-radius: 8px; // Hace los bordes más redondeados
+  border: 1px solid #d9d9d9; // Define un borde suave y de color claro
+  width: 250px; // Ajusta el ancho al 100%
+}

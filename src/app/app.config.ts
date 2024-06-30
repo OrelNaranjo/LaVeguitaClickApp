@@ -9,6 +9,8 @@ import { es_ES, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
+import { provideStore } from '@ngxs/store';
+import { states } from '@core/stores';
 
 registerLocaleData(es);
 
@@ -18,6 +20,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
-    provideAnimationsAsync(), provideNzIcons(), provideNzI18n(es_ES), importProvidersFrom(FormsModule), provideAnimationsAsync(), provideHttpClient(),
+    provideNzIcons(),
+    provideNzI18n(es_ES),
+    importProvidersFrom(FormsModule),
+    provideStore(states),
   ],
 };
