@@ -1,1 +1,38 @@
-<p>new-customer works!</p>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+  <label for="rut">RUT:</label>
+  <input id="rut" formControlName="rut" type="text">
+
+  <label for="first_name">Nombre:</label>
+  <input id="first_name" formControlName="first_name" type="text">
+
+  <label for="last_name">Apellido:</label>
+  <input id="last_name" formControlName="last_name" type="text">
+
+  <label for="phone">Teléfono:</label>
+  <input id="phone" formControlName="phone" type="text">
+
+  <label for="email">Email:</label>
+  <input id="email" formControlName="email" type="email">
+
+  <label for="description">Descripción:</label>
+  <input id="description" formControlName="description" type="text">
+
+  <!-- Asegúrate de que el evento de envío de direcciones está enlazado correctamente -->
+  <app-addresses (addressSubmit)="onAddressSubmit($event)"></app-addresses>
+
+  <!-- Lista de direcciones agregadas -->
+  @if (addresses.length > 0) {
+  <h3>Direcciones Agregadas</h3>
+  <ul>
+    @for (address of addresses; track $index) {
+    <li>
+      <strong>Calle:</strong> {{ address.street }},
+      <strong>Código Postal:</strong> {{ address.zip_code }},
+      <strong>Comuna:</strong> {{ address.commune.name }}
+    </li>
+    }
+  </ul>
+  }
+
+  <button type="submit">Enviar</button>
+</form>

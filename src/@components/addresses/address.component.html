@@ -1,0 +1,17 @@
+<div [formGroup]="addressForm">
+  <div class="form-group">
+    <label for="street">Calle</label>
+    <input type="text" id="street" formControlName="street" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="zip_code">Código Postal</label>
+    <input type="text" id="zip_code" formControlName="zip_code" class="form-control">
+  </div>
+
+  <app-select-field [options]="countries" label="País" id="country" controlName="country" placeholder="Seleccione un país" (selectChange)="onCountryChange($event)"></app-select-field>
+  <app-select-field [options]="filteredRegions" [disabled]="disabledRegion" label="Región" id="region" controlName="region" [placeholder]="placeholderRegion" (selectChange)="onRegionChange($event)"></app-select-field>
+  <app-select-field [options]="filteredCities" [disabled]="disabledCity" label="Ciudad" id="city" controlName="city" [placeholder]="placeholderCity" (selectChange)="onCityChange($event)"></app-select-field>
+  <app-select-field [options]="filteredCommunes" [disabled]="disabledCommune" label="Comuna" id="commune" controlName="commune" [placeholder]="placeholderCommune" (selectChange)="onCommuneChange($event)"></app-select-field>
+
+  <button type="button" (click)="onSubmit()">Agregar Dirección</button>
+</div>

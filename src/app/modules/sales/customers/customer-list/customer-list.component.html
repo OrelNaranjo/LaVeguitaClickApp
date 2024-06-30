@@ -1,29 +1,41 @@
+<div nz-row class="text-end" >
+  <div nz-col nzSpan="24">
+    <button class="add-btn align-items-center" (click)="newCustomer()">
+      <mat-icon>add</mat-icon><span>Nuevo Cliente</span>
+    </button>
+  </div>
+</div>
 <table>
   <thead>
     <tr>
       <th>RUN</th>
       <th>Nombre</th>
-      <th>Apellido</th>
       <th>Email</th>
       <th>Teléfono</th>
-      <th>Descripción</th>
       <th>Dirección</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     @for (customer of customers$(); track customer.id) {
-      <tr>
-        <td>{{ customer.rut }}</td>
-        <td>{{ customer.first_name }}</td>
-        <td>{{ customer.last_name }}</td>
-        <td>{{ customer.email }}</td>
-        <td>{{ customer.phone }}</td>
-        <td>{{ customer.description }}</td>
-        <td>{{ customer.addresses[0].street + ' ' + customer.addresses[0].commune.name }}</td>
-
-        <td><button (click)="editCustomer(customer)">Edit</button></td>
-      </tr>
+    <tr>
+      <td>{{ customer.rut }}</td>
+      <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+      <td>{{ customer.email ? customer.email : 'Sin correo' }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.addresses[0].street }} - {{ customer.addresses[0].commune.name }}</td>
+      <td>
+        <button class="btn-primary" [routerLink]="['/customer', customer.id, 'view']">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button class="btn-warning" [routerLink]="['/customer', customer.id, 'edit']">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="btn-danger" (click)="deleteCustomer(customer)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
     }
   </tbody>
 </table>

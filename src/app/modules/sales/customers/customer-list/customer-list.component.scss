@@ -1,0 +1,22 @@
+table td:nth-child(1) {
+  white-space: nowrap;
+}
+
+table td:nth-child(2) {
+  white-space: nowrap;
+}
+
+table td:nth-child(6),
+table th:nth-child(6) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+span {
+  padding-top: .1rem;
+  text-transform: uppercase;
+}
+
+.add-btn {
+  margin-bottom: 1rem;
+}
