@@ -28,7 +28,7 @@
       "@config/*": ["src/@config/*"],
       "@shared/*": ["src/@shared/*"],
       "@definitions/*": ["src/@definitions/*"],
-      "@components/*": ["src/app/@components/*"],
+      "@components/*": ["src/@components/*"],
     }
   },
   "angularCompilerOptions": {

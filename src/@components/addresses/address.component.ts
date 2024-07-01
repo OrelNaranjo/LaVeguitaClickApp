@@ -1,50 +1,48 @@
 import { Country } from './../../@shared/interfaces/country';
 import { SelectFieldComponent } from './../select-field/select-field.component';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Store } from '@ngxs/store';
 import { Commune, Region, City, Address } from '@shared/interfaces';
+import { LoadCountries, LoadRegions, LoadCities, LoadCommunes, CountryState, RegionState, CityState, CommuneState } from '../../@core';
+import { Observable, of } from 'rxjs';
+import { map, switchMap, startWith } from 'rxjs/operators';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-addresses',
   standalone: true,
-  imports: [ReactiveFormsModule, SelectFieldComponent],
+  imports: [ReactiveFormsModule, SelectFieldComponent, AsyncPipe],
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss'],
 })
 export class AddressComponent {
-  // datos de ejemplo
-  countries = [
-    { id: 1, name: 'Chile', iso2: 'cl' },
-    { id: 2, name: 'United States', iso2: 'us' },
-  ];
-  regions = [
-    { id: 1, name: 'Región Metropolitana', country_id: 1 },
-    { id: 2, name: 'Región de Valparaíso', country_id: 1 },
-  ];
-  cities = [
-    { id: 1, name: 'Santiago', region_id: 1 },
-    { id: 2, name: 'Viña del Mar', region_id: 2 },
-  ];
-  communes = [
-    { id: 1, name: 'Providencia', city_id: 1 },
-    { id: 2, name: 'Las Condes', city_id: 1 },
-    { id: 3, name: 'Valparaíso', city_id: 2 },
-    { id: 4, name: 'Viña del Mar', city_id: 2 },
-  ];
+  countries$: Observable<Country[]>;
+  regions$: Observable<Region[]>;
+  cities$: Observable<City[]>;
+  communes$: Observable<Commune[]>;
 
   disabledRegion = true;
   disabledCity = true;
   disabledCommune = true;
+
   placeholderRegion = 'No hay regiones disponibles';
   placeholderCity = 'No hay ciudades disponibles';
   placeholderCommune = 'No hay comunas disponibles';
+
   addressForm: FormGroup;
-  filteredRegions: Region[] = [];
-  filteredCities: City[] = [];
-  filteredCommunes: Commune[] = [];
+
+  filteredRegions$: Observable<Region[]> = of([]);
+  filteredCities$: Observable<City[]> = of([]);
+  filteredCommunes$: Observable<Commune[]> = of([]);
+
+  @Input() display = true;
   @Output() addressSubmit = new EventEmitter<Address>();
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+  ) {
     this.addressForm = this.fb.group({
       street: ['', Validators.required],
       zip_code: ['', Validators.required],
@@ -53,81 +51,89 @@ export class AddressComponent {
       city: [{ value: '', disabled: true }],
       commune: [{ value: '', disabled: true }, Validators.required],
     });
+
+    this.store.dispatch(new LoadCountries());
+    this.store.dispatch(new LoadRegions());
+    this.store.dispatch(new LoadCities());
+    this.store.dispatch(new LoadCommunes());
+
+    this.countries$ = this.store.select(CountryState.getCountries);
+    this.regions$ = this.store.select(RegionState.getRegions);
+    this.cities$ = this.store.select(CityState.getCities);
+    this.communes$ = this.store.select(CommuneState.getCommunes);
+
+    this.filteredRegions$ = this.addressForm.get('country')!.valueChanges.pipe(
+      startWith(null),
+      switchMap((country) => {
+        if (country) {
+          return this.regions$.pipe(map((regions) => regions.filter((region) => region.country_id === country.id)));
+        } else {
+          return of([]);
+        }
+      }),
+    );
+
+    this.filteredRegions$.subscribe((regions) => {
+      this.disabledRegion = regions.length === 0;
+      this.addressForm.get('region')!.reset({ value: '', disabled: this.disabledRegion });
+      this.placeholderRegion = this.disabledRegion ? 'No hay regiones disponibles' : 'Seleccione una región';
+    });
+
+    this.filteredCities$ = this.addressForm.get('region')!.valueChanges.pipe(
+      startWith(null),
+      switchMap((region) => {
+        if (region) {
+          return this.cities$.pipe(map((cities) => cities.filter((city) => city.region_id === region.id)));
+        } else {
+          return of([]);
+        }
+      }),
+    );
+
+    this.filteredCities$.subscribe((cities) => {
+      this.disabledCity = cities.length === 0;
+      this.addressForm.get('city')!.reset({ value: '', disabled: this.disabledCity });
+      this.placeholderCity = this.disabledCity ? 'No hay ciudades disponibles' : 'Seleccione una ciudad';
+    });
+
+    this.filteredCommunes$ = this.addressForm.get('city')!.valueChanges.pipe(
+      startWith(null),
+      switchMap((city) => {
+        if (city) {
+          return this.communes$.pipe(map((communes) => communes.filter((commune) => commune.city_id === city.id)));
+        } else {
+          return of([]);
+        }
+      }),
+    );
+
+    this.filteredCommunes$.subscribe((communes) => {
+      this.disabledCommune = communes.length === 0;
+      this.addressForm.get('commune')!.reset({ value: '', disabled: this.disabledCommune });
+      this.placeholderCommune = this.disabledCommune ? 'No hay comunas disponibles' : 'Seleccione una comuna';
+    });
   }
 
   onCountryChange(selectedCountry: Country): void {
     this.addressForm.get('country')!.setValue(selectedCountry);
-    this.filteredRegions = this.regions.filter((region) => region.country_id === selectedCountry.id);
-    this.disabledRegion = this.filteredRegions.length === 0;
-    if (this.addressForm.get('region')) {
-      this.addressForm.get('region')!.enable();
-      if (this.filteredRegions.length === 0) {
-        this.placeholderRegion = 'No hay regiones disponibles';
-        this.addressForm.get('region')!.disable();
-      } else {
-        this.placeholderRegion = 'Seleccione una región';
-      }
-    }
-    if (this.addressForm.get('city')) {
-      this.addressForm.get('city')!.reset();
-      this.addressForm.get('city')!.disable();
-    }
-    if (this.addressForm.get('commune')) {
-      this.addressForm.get('commune')!.reset();
-      this.addressForm.get('commune')!.disable();
-    }
-    this.disabledCity = true;
-    this.disabledCommune = true;
   }
 
   onRegionChange(selectedRegion: Region): void {
-    if (this.addressForm) {
-      this.addressForm.get('region')!.setValue(selectedRegion);
-      this.filteredCities = this.cities.filter((city) => city.region_id === selectedRegion.id);
-      this.disabledCity = this.filteredCities.length === 0;
-      this.addressForm.get('city')!.enable();
-      if (this.filteredCities.length === 0) {
-        this.placeholderCity = 'No hay ciudades disponibles';
-        this.addressForm.get('city')!.disable();
-      } else {
-        this.placeholderCity = 'Seleccione una ciudad';
-      }
-      const communeField = this.addressForm.get('commune');
-      if (communeField) {
-        communeField.reset();
-        communeField.disable();
-        this.disabledCommune = true;
-      }
-    }
+    this.addressForm.get('region')!.setValue(selectedRegion);
   }
 
   onCityChange(selectedCity: City): void {
     this.addressForm.get('city')!.setValue(selectedCity);
-    this.filteredCommunes = this.communes.filter((commune) => commune.city_id === selectedCity.id);
-    this.disabledCommune = this.filteredCommunes.length === 0;
-
-    const communeControl = this.addressForm.get('commune');
-    if (communeControl) {
-      communeControl.enable();
-      if (this.filteredCommunes.length === 0) {
-        this.placeholderCommune = 'No hay comunas disponibles';
-        communeControl.disable();
-      } else {
-        this.placeholderCommune = 'Seleccione una comuna';
-      }
-    }
   }
 
   onCommuneChange(selectedCommune: Commune): void {
-    const communeControl = this.addressForm.get('commune');
-    if (communeControl) {
-      communeControl.setValue(selectedCommune);
-    }
+    this.addressForm.get('commune')!.setValue(selectedCommune);
   }
 
   onSubmit(): void {
     if (this.addressForm.valid) {
       this.addressSubmit.emit(this.addressForm.value);
+      this.addressForm.reset();
     }
   }
 

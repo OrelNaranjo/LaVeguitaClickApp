@@ -1,38 +1,95 @@
 <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
-  <label for="rut">RUT:</label>
-  <input id="rut" formControlName="rut" type="text">
+  <div nz-row>
+    <div nz-col [nzSpan]="2">
+      <label nz-form-label for="rut">RUT:</label>
+    </div>
+    <div nz-col [nzSpan]="5">
+      <input nz-input id="rut" formControlName="rut" type="text">
+    </div>
+    <div nz-col [nzSpan]="1">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <label nz-form-label for="email">Email:</label>
+    </div>
+    <div nz-col [nzSpan]="10">
+      <input nz-input id="email" formControlName="email" type="email">
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="2">
+      <label nz-form-label for="first_name">Nombre:</label>
+    </div>
+    <div nz-col [nzSpan]="7">
+      <input nz-input id="first_name" formControlName="first_name" type="text">
+    </div>
+    <div nz-col [nzSpan]="1">
+    </div>
+    <div nz-col [nzSpan]="2">
+      <label nz-form-label for="last_name">Apellido:</label>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <input nz-input id="last_name" formControlName="last_name" type="text">
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="2">
+      <label nz-form-label for="phone">Teléfono:</label>
+    </div>
+    <div nz-col [nzSpan]="5">
+      <input nz-input id="phone" formControlName="phone" type="text">
+    </div>
+    <div nz-col [nzSpan]="1">
+    </div>
+    <div nz-col [nzSpan]="3">
+      <label nz-form-label for="description">Descripción:</label>
+    </div>
+    <div nz-col [nzSpan]="9">
+      <input nz-input id="description" formControlName="description" type="text">
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="24">
+      <span>Direcciones:</span>
+      <table class="addresses-table">
+        <thead>
+          <tr>
+            <th class="column-number">N°</th>
+            <th class="column-street">Calle</th>
+            <th class="column-zip">Código Postal</th>
+            <th class="column-commune">Comuna</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (address of addresses; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ address.street }}</td>
+            <td>{{ address.zip_code }}</td>
+            <td>{{ address.commune.name }}</td>
+          </tr>
+          } @empty {
+          <tr>
+            <td colspan="1"><button (click)="newAddress()"><mat-icon>add</mat-icon></button></td>
+            <td colspan="3">No hay direcciones</td>
+          </tr>
+          }
+          @if (addresses.length > 0) {
+          <tr>
+            <td colspan="1"><button (click)="newAddress()"><mat-icon>add</mat-icon></button></td>
+            <td colspan="3">Nueva dirección</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <label for="first_name">Nombre:</label>
-  <input id="first_name" formControlName="first_name" type="text">
+  <app-addresses [display]="showAddress" (addressSubmit)="onAddressSubmit($event)"></app-addresses>
 
-  <label for="last_name">Apellido:</label>
-  <input id="last_name" formControlName="last_name" type="text">
-
-  <label for="phone">Teléfono:</label>
-  <input id="phone" formControlName="phone" type="text">
-
-  <label for="email">Email:</label>
-  <input id="email" formControlName="email" type="email">
-
-  <label for="description">Descripción:</label>
-  <input id="description" formControlName="description" type="text">
-
-  <!-- Asegúrate de que el evento de envío de direcciones está enlazado correctamente -->
-  <app-addresses (addressSubmit)="onAddressSubmit($event)"></app-addresses>
-
-  <!-- Lista de direcciones agregadas -->
-  @if (addresses.length > 0) {
-  <h3>Direcciones Agregadas</h3>
-  <ul>
-    @for (address of addresses; track $index) {
-    <li>
-      <strong>Calle:</strong> {{ address.street }},
-      <strong>Código Postal:</strong> {{ address.zip_code }},
-      <strong>Comuna:</strong> {{ address.commune.name }}
-    </li>
-    }
-  </ul>
-  }
-
-  <button type="submit">Enviar</button>
+  <div nz-row nzGutter="16">
+    <div nz-col [nzSpan]="24">
+      <button nz-button nzType="default" type="button" (click)="onBack()" class="btn-back">Volver</button>
+      <button nz-button nzType="primary" type="submit">Enviar</button>
+    </div>
+  </div>
 </form>

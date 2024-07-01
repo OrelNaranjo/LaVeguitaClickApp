@@ -16,7 +16,6 @@ body {
   overflow-x: hidden;
   height: 100%;
   padding: 0;
-
   margin: 0;
 }
 
@@ -37,27 +36,18 @@ body {
 }
 
 //Botones
+
 button,
 .btn,
 input::file-selector-button {
-  justify-content: center;
   border: none;
   color: white;
-  display: inline-flex;
   transition: all 0.5s;
   cursor: pointer;
   border-radius: 5px;
-  font-family: Kalam, sans-serif;
   font-weight: 500;
-  height: 35px;
   background-color: $btn-green;
-  padding: 8px 15px;
-}
-
-.btn span {
-  position: relative;
-  top: 2px;
-  padding-right: 3px;
+  padding: .5rem 1rem;
 }
 
 button:hover,
@@ -81,8 +71,8 @@ input::file-selector-button:hover {
   background-color: #da190b;
 }
 
-.mat-icon {
-  vertical-align: middle;
+.btn-back {
+  background-color: #686868;
 }
 
 // Tablas
@@ -133,11 +123,13 @@ table .table-danger {
 
 table td .mat-icon {
   font-size: 15px !important;
+  height: auto;
+  width: auto;
 }
 
 table td button {
-  padding: 0.3rem !important;
-  margin: 5px;
+  padding: .3rem !important;
+  margin: 0 .3rem;
   height: 25px;
   width: 25px;
 }
@@ -180,4 +172,25 @@ table td button {
 
 .display-flex {
   display: flex !important;
+}
+
+//Formularios
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+
+  &:focus {
+    border-color: $btn-green;
+    outline: 2px solid $btn-green;
+  }
 }

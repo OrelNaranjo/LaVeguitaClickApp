@@ -1,5 +1,6 @@
-import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-select-field',
@@ -14,8 +15,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   templateUrl: './select-field.component.html',
   styleUrls: ['./select-field.component.scss'],
 })
-export class SelectFieldComponent<T extends { id: number, name: string }> implements ControlValueAccessor {
-  @Input() options: T[] = [];
+export class SelectFieldComponent<T extends { id: number, name: string }> implements ControlValueAccessor, OnInit {
+  @Input() options$!: Observable<T[]>;
   @Input() label = '';
   @Input() id = '';
   @Input() controlName = '';
@@ -23,12 +24,19 @@ export class SelectFieldComponent<T extends { id: number, name: string }> implem
   @Input() disabled = false;
   @Output() selectChange = new EventEmitter<T>();
 
+  options: T[] = [];
   selectedValue!: T;
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: (value: T) => void = () => {};
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
+
+  ngOnInit(): void {
+    this.options$.subscribe(options => {
+      this.options = options;
+    });
+  }
 
   writeValue(obj: T): void {
     this.selectedValue = obj;

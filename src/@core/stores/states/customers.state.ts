@@ -1,4 +1,3 @@
-// CustomersState
 import { Injectable } from '@angular/core';
 import { CustomersService } from '@core/services';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
