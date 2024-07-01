@@ -1,17 +1,28 @@
+import { InvoiceRequest } from '../../@definitions'
 import { Customer } from './customer';
-import { CreateInvoiceDetail, InvoiceDetail } from './invoice-detail';
+import { Product } from './product'
 
 export interface Invoice {
-  id: number;
+  id?: number;
+  date?: Date | string;
   customer: Customer;
-  date: Date;
   total: number;
   details: InvoiceDetail[];
 }
 
-export interface CreateInvoice {
-  customer: Customer;
-  date: Date;
-  total: number;
-  details: CreateInvoiceDetail[];
+export interface InvoiceDetail {
+  id?: number;
+  product: Product;
+  quantity: number;
+  price: number;
+  cost: number;
+  subtotal: number;
+}
+
+export interface InvoiceStateModel {
+  invoices: Invoice[];
+}
+
+export interface InvoiceRequestStateModel {
+  invoices: InvoiceRequest[];
 }

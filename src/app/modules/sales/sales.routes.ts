@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { InvoiceComponent } from './invoices';
 import { InvoiceListComponent, CreateInvoiceComponent } from './invoices';
 import { CreateReceiptComponent, ReceiptComponent } from './receipts';
 import { CustomerListComponent, NewCustomerComponent } from './customers';
@@ -7,9 +6,8 @@ import { CustomerListComponent, NewCustomerComponent } from './customers';
 export const salesRoutes: Routes = [
   { path: 'receipt', component: ReceiptComponent },
   { path: 'receipt/create', component: CreateReceiptComponent },
-  { path: 'invoice', component: InvoiceComponent },
-  { path: 'invoice/create', component: CreateInvoiceComponent },
-  { path: 'list', component: InvoiceListComponent },
+  { path: 'invoices', component: InvoiceListComponent },
+  { path: 'invoices/new', component: CreateInvoiceComponent },
   { path: 'clients', component: CustomerListComponent },
   { path: 'clients/new', component: NewCustomerComponent }
 ];

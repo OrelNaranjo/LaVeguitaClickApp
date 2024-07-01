@@ -1,14 +1,13 @@
-.invoice-container {
-  padding: 16px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+td:nth-child(4),
+th:nth-child(4) {
+  text-align: end;
+  white-space: nowrap;
+}
 
-  nz-table {
-    background-color: white;
-  }
-
-  button {
-    margin-right: 8px;
-  }
+td:nth-child(1),
+th:nth-child(1),
+td:nth-child(5),
+th:nth-child(5) {
+  text-align: center;
+  white-space: nowrap;
 }

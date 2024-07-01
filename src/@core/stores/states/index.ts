@@ -4,4 +4,7 @@ export { CityState } from './city.state';
 export { CommuneState } from './commune.state';
 export { CountryState } from './country.state';
 export { RegionState } from './region.state';
+export { ProductsState } from './products.state';
+export { InvoicesState } from './invoice.state';
+export { InvoicesRequestState } from './invoice-request.state';
 export { states } from './state';

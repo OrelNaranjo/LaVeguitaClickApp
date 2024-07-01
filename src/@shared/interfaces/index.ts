@@ -8,7 +8,6 @@ export * from './customer';
 export * from './employee-detail';
 export * from './employee';
 export * from './image';
-export * from './invoice-detail';
 export * from './invoice';
 export * from './login-credentials';
 export * from './package-type';

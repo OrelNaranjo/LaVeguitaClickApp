@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service';
-import { TitleService } from '@core/services';
+import { ProductService, TitleService } from '@core/services';
 import { AsyncPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -107,18 +106,19 @@ export class ProductComponent {
       categories: this.selectedCategory ? [this.selectedCategory] : [],
     };
 
-    // Guarda el producto
-    this.productService.createProduct(product).subscribe((savedProduct: ProductResponse) => {
-      // Una vez que el producto se ha guardado con éxito, guarda las imágenes
-      if (this.selectedFiles && this.selectedFiles.length > 0) {
-        for (const file of this.selectedFiles) {
-          // Aquí se crea el objeto createImageDto, necesitaría más detalles sobre cómo se crea este objeto
-          const createImageDto = {};
-          this.productService.uploadImage(savedProduct.id, file, createImageDto).subscribe(() => {
-            // Maneja la respuesta de la carga de la imagen aquí
-          });
-        }
-      }
-    });
+    //   // Guarda el producto
+    //   // this.productService.createProduct(product).subscribe((savedProduct: ProductResponse) => {
+    //     // Una vez que el producto se ha guardado con éxito, guarda las imágenes
+    //     if (this.selectedFiles && this.selectedFiles.length > 0) {
+    //       for (const file of this.selectedFiles) {
+    //         // Aquí se crea el objeto createImageDto, necesitaría más detalles sobre cómo se crea este objeto
+    //         const createImageDto = {};
+    //         this.productService.uploadImage(savedProduct.id, file, createImageDto).subscribe(() => {
+    //           // Maneja la respuesta de la carga de la imagen aquí
+    //         });
+    //       }
+    //     }
+    //   });
+    // }
   }
 }

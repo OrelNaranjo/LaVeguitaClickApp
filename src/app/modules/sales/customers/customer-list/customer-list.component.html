@@ -1,10 +1,10 @@
-<div nz-row class="text-end" >
-  <div nz-col nzSpan="24">
-    <button class="add-btn" (click)="newCustomer()">
+<nz-row nzJustify="end">
+  <nz-col nzSpan="24">
+    <button class="mb0 btn-group" [routerLink]="['new']">
       <mat-icon>add</mat-icon><span>Nuevo Cliente</span>
     </button>
-  </div>
-</div>
+  </nz-col>
+</nz-row>
 <table>
   <thead>
     <tr>
@@ -13,7 +13,7 @@
       <th>Email</th>
       <th>Teléfono</th>
       <th>Dirección</th>
-      <th>Actions</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -25,10 +25,10 @@
       <td>{{ customer.phone }}</td>
       <td>{{ customer.addresses[0].street }} - {{ customer.addresses[0].commune.name }}</td>
       <td>
-        <button class="btn-primary" [routerLink]="['/customer', customer.id, 'view']">
+        <button class="btn-primary" [routerLink]="[customer.id, 'view']">
           <mat-icon>visibility</mat-icon>
         </button>
-        <button class="btn-warning" [routerLink]="['/customer', customer.id, 'edit']">
+        <button class="btn-warning" [routerLink]="[customer.id, 'edit']">
           <mat-icon>edit</mat-icon>
         </button>
         <button class="btn-danger" (click)="deleteCustomer(customer)">

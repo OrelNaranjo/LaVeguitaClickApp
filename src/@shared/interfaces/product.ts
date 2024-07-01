@@ -47,3 +47,7 @@ export interface ImageCreationRequest {
   alt: string;
   product: number;
 }
+
+export interface ProductStateModel {
+  products: Product[];
+}

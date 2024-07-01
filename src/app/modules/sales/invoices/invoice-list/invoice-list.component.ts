@@ -1,37 +1,34 @@
-import { CurrencyPipe, DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { DatePipe, TitleCasePipe } from '@angular/common';
+import { Component, Signal } from '@angular/core';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { NzTableComponent } from 'ng-zorro-antd/table';
 import { Invoice } from '@shared/interfaces';
+import { TitleService } from '@core/services'
+import { Store } from '@ngxs/store'
+import { LoadInvoices } from '@core/stores'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { MatIconModule } from '@angular/material/icon'
+import { Router, RouterLink } from '@angular/router'
+import { NzColDirective, NzGridModule, NzRowDirective } from 'ng-zorro-antd/grid'
+import { CurrencyPipe } from '../../../../../@core/pipes'
 
 @Component({
   selector: 'app-invoice-list',
   standalone: true,
-  imports: [CurrencyPipe, DatePipe, NzTableComponent, NzButtonComponent],
+  imports: [RouterLink, TitleCasePipe, CurrencyPipe, DatePipe, NzTableComponent, NzButtonComponent, MatIconModule, NzGridModule, NzRowDirective, NzColDirective],
   templateUrl: './invoice-list.component.html',
   styleUrl: './invoice-list.component.scss',
 })
-export class InvoiceListComponent implements OnInit {
-  invoices: Invoice[] = [];
+export class InvoiceListComponent {
+  invoices$: Signal<Invoice[]>;
 
-  ngOnInit(): void {
-    // Cargar las facturas de ejemplo
-    this.invoices = [];
-  }
-
-  viewInvoice(invoice: Invoice): void {
-    // Lógica para ver la factura
-    console.log('Ver factura', invoice);
-  }
-
-  editInvoice(invoice: Invoice): void {
-    // Lógica para editar la factura
-    console.log('Editar factura', invoice);
-  }
-
-  deleteInvoice(invoice: Invoice): void {
-    // Lógica para eliminar la factura
-    this.invoices = this.invoices.filter((i) => i.id !== invoice.id);
-    console.log('Eliminar factura', invoice);
+  constructor(
+    private titleService: TitleService,
+    private store: Store,
+    private router: Router
+  ) {
+    this.titleService.setTitle('Lista de Facturas');
+    this.store.dispatch(new LoadInvoices());
+    this.invoices$ = toSignal(this.store.select((state) => state.invoices.invoices));
   }
 }

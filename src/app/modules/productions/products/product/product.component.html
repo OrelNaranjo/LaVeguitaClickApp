@@ -35,20 +35,20 @@
     <div class="custom-select" (click)="toggleDropdown()">
       <div class="select-selected">{{ getSelectedCategoryName() }}</div>
       @if (dropdownOpen) {
-        <div class="select-items" (click)="$event.stopPropagation()">
-          @for (category of categories$(); track category.id) {
-            <div class="category" (click)="selectCategory(category); $event.stopPropagation()">
-              {{ category.name }}
-            </div>
-            @for (subcategory of category.childrens; track subcategory.id) {
-              <div class="subcategory" (click)="selectCategory(subcategory); $event.stopPropagation()">
-                {{ subcategory.name }}
-              </div>
-            }
-          } @empty {
-            <div class="no-categories">No hay categorías disponibles</div>
-          }
+      <div class="select-items" (click)="$event.stopPropagation()">
+        @for (category of categories$(); track category.id) {
+        <div class="category" (click)="selectCategory(category); $event.stopPropagation()">
+          {{ category.name }}
         </div>
+        @for (subcategory of category.childrens; track subcategory.id) {
+        <div class="subcategory" (click)="selectCategory(subcategory); $event.stopPropagation()">
+          {{ subcategory.name }}
+        </div>
+        }
+        } @empty {
+        <div class="no-categories">No hay categorías disponibles</div>
+        }
+      </div>
       }
     </div>
     <button type="button" (click)="addCategory(selectedCategory)">Agregar</button>
