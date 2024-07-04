@@ -20,11 +20,11 @@
         <span class="sidebar-text">Inicio</span>
       </a>
     </li>
-    <li class="sidebar-item" (click)="toggleSubmenu('sale')" (keyup)="toggleSubmenu('sale')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'sale' }">
+    <li class="sidebar-item" (click)="toggleSubmenu('sales')" (keyup)="toggleSubmenu('sales')" tabindex="0">
+      <a class="sidebar-link" routerLink="/sales" [ngClass]="{ active: openedSubmenu === 'sales' }">
         <span class="sidebar-text">Ventas</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'sale' }">
+      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'sales' }">
         <li class="sidebar-item">
           <a routerLink="/sales/clients" class="sidebar-link" routerLinkActive="active"
             (click)="$event.stopPropagation()">
@@ -38,13 +38,13 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/sales/receipt/create" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/sales/receipts/new" class="sidebar-link" routerLinkActive="active"
             (click)="$event.stopPropagation()">
             <span class="sidebar-text">Boletas</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/catalog" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/catalogs" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
             <span class="sidebar-text">Catálogo</span>
           </a>
         </li>
