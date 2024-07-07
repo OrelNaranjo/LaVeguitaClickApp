@@ -14,7 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class SidebarComponent implements OnInit {
   user: User | null = null;
-  openedSubmenu = '';
   openedAside = true;
 
   constructor(private authService: AuthService) {}
@@ -27,8 +26,8 @@ export class SidebarComponent implements OnInit {
     this.authService.logout();
   }
 
-  toggleSubmenu(menuName: string) {
-    this.openedSubmenu = this.openedSubmenu === menuName ? '' : menuName;
+  preventNavigation(event: MouseEvent): void {
+    event.preventDefault();
   }
 
   toggleAside() {

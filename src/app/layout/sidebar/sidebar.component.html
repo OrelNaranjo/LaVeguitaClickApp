@@ -20,180 +20,180 @@
         <span class="sidebar-text">Inicio</span>
       </a>
     </li>
-    <li class="sidebar-item" (click)="toggleSubmenu('sales')" (keyup)="toggleSubmenu('sales')" tabindex="0">
-      <a class="sidebar-link" routerLink="/sales" [ngClass]="{ active: openedSubmenu === 'sales' }">
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLink="/sales" routerLinkActive="active">
         <span class="sidebar-text">Ventas</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'sales' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
           <a routerLink="/sales/clients" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Clientes</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/sales/invoices" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Facturas</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/sales/receipts/new" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Boletas</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/catalogs" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/catalogs" class="sidebar-link" routerLinkActive="active">
             <span class="sidebar-text">Catálogo</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <li class="sidebar-item" (click)="toggleSubmenu('purchases')" (keyup)="toggleSubmenu('purchases')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'purchases' }">
+    <li class="sidebar-item">
+      <a class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Compras</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'purchases' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/orders" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/orders" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Pedidos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/suppliers" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/suppliers" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Proveedores</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <li class="sidebar-item" (click)="toggleSubmenu('production')" (keyup)="toggleSubmenu('production')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'production' }">
+    <li class="sidebar-item">
+      <a routerLink="/production" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Producción</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'production' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
           <a routerLink="/production/products" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Productos</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/production/categories" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Categorías</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/production/inventories" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Inventarios</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/production/processes" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Procesos</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/production/transformations" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Transformaciones</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/production/warehouses" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Bodegas</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <li class="sidebar-item" (click)="toggleSubmenu('logistics')" (keyup)="toggleSubmenu('logistics')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'logistics' }">
+    <li class="sidebar-item">
+      <a routerLink="/vehicles" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Logística</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'logistics' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/vehicles" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/vehicles" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Vehículos</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/maintenance" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Mantenciones</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a routerLink="/logistics/drivers" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Transportistas</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/deliveries" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/deliveries" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Despachos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/tracking" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/tracking" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Seguimiento</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <li class="sidebar-item" (click)="toggleSubmenu('staff')" (keyup)="toggleSubmenu('staff')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'staff' }">
+    <li class="sidebar-item">
+      <a routerLink="/staffs" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Personal</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'staff' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
           <a routerLink="staffs/employees" class="sidebar-link" routerLinkActive="active"
-            (click)="$event.stopPropagation()">
+            >
             <span class="sidebar-text">Empleados</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <li class="sidebar-item" (click)="toggleSubmenu('tools')" (keyup)="toggleSubmenu('tools')" tabindex="0">
-      <a class="sidebar-link" [ngClass]="{ active: openedSubmenu === 'tools' }">
+    <li class="sidebar-item">
+      <a routerLink="/tools" class="sidebar-link" routerLinkActive="active" (click)="preventNavigation($event)">
         <span class="sidebar-text">Herramientas</span>
       </a>
-      <ul class="sidebar-submenu" [ngClass]="{ open: openedSubmenu === 'tools' }">
+      <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/reports" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/reports" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Informes</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/backups" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/backups" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Respaldos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/settings" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/settings" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Configuración</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/security" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/security" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Seguridad</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/users" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/users" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Usuarios</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/auditory" class="sidebar-link" routerLinkActive="active" (click)="$event.stopPropagation()">
+          <a routerLink="/auditory" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Auditoria</span>
           </a>
         </li>
