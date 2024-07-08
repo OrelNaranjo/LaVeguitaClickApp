@@ -44,7 +44,13 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/catalogs" class="sidebar-link" routerLinkActive="active">
+          <a routerLink="/sales/guides" class="sidebar-link" routerLinkActive="active"
+            >
+            <span class="sidebar-text">Guias de Despacho</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a routerLink="/sales/catalog" class="sidebar-link" routerLinkActive="active">
             <span class="sidebar-text">Catálogo</span>
           </a>
         </li>
@@ -52,17 +58,17 @@
     </li>
 
     <li class="sidebar-item">
-      <a class="sidebar-link" routerLinkActive="active">
+      <a routerLink="/purchases" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Compras</span>
       </a>
       <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/orders" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/purchases/orders" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Pedidos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/suppliers" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/purchases/suppliers" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Proveedores</span>
           </a>
         </li>
@@ -70,42 +76,42 @@
     </li>
 
     <li class="sidebar-item">
-      <a routerLink="/production" class="sidebar-link" routerLinkActive="active">
+      <a routerLink="/productions" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Producción</span>
       </a>
       <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/production/products" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/products" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Productos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/production/categories" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/categories" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Categorías</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/production/inventories" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/inventories" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Inventarios</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/production/processes" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/processes" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Procesos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/production/transformations" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/transformations" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Transformaciones</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/production/warehouses" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/productions/warehouses" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Bodegas</span>
           </a>
@@ -114,35 +120,24 @@
     </li>
 
     <li class="sidebar-item">
-      <a routerLink="/vehicles" class="sidebar-link" routerLinkActive="active">
+      <a routerLink="/logistics" class="sidebar-link" routerLinkActive="active">
         <span class="sidebar-text">Logística</span>
       </a>
       <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/vehicles" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/logistics/vehicles" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Vehículos</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/maintenance" class="sidebar-link" routerLinkActive="active"
+          <a routerLink="/logistics/maintenance" class="sidebar-link" routerLinkActive="active"
             >
             <span class="sidebar-text">Mantenciones</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/logistics/drivers" class="sidebar-link" routerLinkActive="active"
-            >
-            <span class="sidebar-text">Transportistas</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a routerLink="/deliveries" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/logistics/deliveries" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Despachos</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a routerLink="/tracking" class="sidebar-link" routerLinkActive="active" >
-            <span class="sidebar-text">Seguimiento</span>
           </a>
         </li>
       </ul>
@@ -168,28 +163,13 @@
       </a>
       <ul class="sidebar-submenu">
         <li class="sidebar-item">
-          <a routerLink="/reports" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/tools/reports" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Informes</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a routerLink="/backups" class="sidebar-link" routerLinkActive="active" >
+          <a routerLink="/tools/backups" class="sidebar-link" routerLinkActive="active" >
             <span class="sidebar-text">Respaldos</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a routerLink="/settings" class="sidebar-link" routerLinkActive="active" >
-            <span class="sidebar-text">Configuración</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a routerLink="/security" class="sidebar-link" routerLinkActive="active" >
-            <span class="sidebar-text">Seguridad</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a routerLink="/users" class="sidebar-link" routerLinkActive="active" >
-            <span class="sidebar-text">Usuarios</span>
           </a>
         </li>
         <li class="sidebar-item">

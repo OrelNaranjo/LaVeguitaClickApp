@@ -1,0 +1,473 @@
+<div class="help-container">
+  <h1>Manual de Uso</h1>
+
+  <div class="help-index">
+    <h2>Índice</h2>
+    <ul>
+      <li><a routerLink="/doc" [fragment]="'home'">Inicio</a></li>
+      <li><a routerLink="/doc" [fragment]="'sales'">Ventas</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'clients'">Clientes</a></li>
+          <li><a routerLink="/doc" [fragment]="'invoices'">Facturas</a></li>
+          <li><a routerLink="/doc" [fragment]="'receipts'">Boletas</a></li>
+          <li><a routerLink="/doc" [fragment]="'guides'">Guias de Despacho</a></li>
+          <li><a routerLink="/doc" [fragment]="'catalog'">Catálogo</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/doc" [fragment]="'purchases'">Compras</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'orders'">Pedidos</a></li>
+          <li><a routerLink="/doc" [fragment]="'suppliers'">Proveedores</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/doc" [fragment]="'productions'">Producción</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'products'">Productos</a></li>
+          <li><a routerLink="/doc" [fragment]="'categories'">Categorías</a></li>
+          <li><a routerLink="/doc" [fragment]="'inventaries'">Inventarios</a></li>
+          <li><a routerLink="/doc" [fragment]="'processes'">Procesos</a></li>
+          <li><a routerLink="/doc" [fragment]="'transformations'">Transformaciones</a></li>
+          <li><a routerLink="/doc" [fragment]="'warehouses'">Bodegas</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/doc" [fragment]="'logistics'">Logística</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'vehicules'">Vehículos</a></li>
+          <li><a routerLink="/doc" [fragment]="'maintenance'">Mantenciones</a></li>
+          <li><a routerLink="/doc" [fragment]="'dispatches'">Despachos</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/doc" [fragment]="'staffs'">Personal</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'employees'">Empleados</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/doc" [fragment]="'tools'">Herramientas</a>
+        <ul>
+          <li><a routerLink="/doc" [fragment]="'reports'">Informes</a></li>
+          <li><a routerLink="/doc" [fragment]="'backups'">Respaldos</a></li>
+          <li><a routerLink="/doc" [fragment]="'audits'">Auditoria</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="help-content">
+    <section id="home">
+      <h2>Inicio</h2>
+      <p>Bienvenido al manual de usuario. Aquí encontrarás la información necesaria para utilizar el sistema ERP.</p>
+    </section>
+
+    <section id="sales">
+      <h2>Ventas</h2>
+      <p>En la sección de ventas, puedes gestionar las transacciones comerciales que realiza tu empresa con sus
+        clientes. A continuación, encontrarás detalles sobre las funcionalidades disponibles.</p>
+
+      <section id="clients">
+        <h3>Clientes</h3>
+        <p>En esta sección puedes gestionar la información de los clientes. Puedes añadir, modificar o eliminar
+          clientes, así como ver un listado de todos los clientes registrados.</p>
+        <p><strong>Agregar un nuevo cliente:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Cliente".</li>
+          <li>Rellena los campos requeridos como nombre, dirección, teléfono y correo electrónico.</li>
+          <li>Haz clic en "Guardar" para almacenar la información del cliente.</li>
+        </ul>
+        <p><strong>Modificar un cliente existente:</strong></p>
+        <ul>
+          <li>Selecciona el cliente que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un cliente:</strong></p>
+        <ul>
+          <li>Selecciona el cliente que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+
+      <section id="invoices">
+        <h3>Facturas</h3>
+        <p>Gestiona las facturas emitidas a los clientes. Puedes crear nuevas facturas, ver el estado de las facturas
+          existentes y generar informes.</p>
+        <p><strong>Crear una nueva factura:</strong></p>
+        <ul>
+          <li>Haz clic en "Nueva Factura".</li>
+          <li>Selecciona el cliente al que se le emitirá la factura.</li>
+          <li>Añade los productos o servicios proporcionados.</li>
+          <li>Introduce los detalles adicionales como fecha de emisión y términos de pago.</li>
+          <li>Haz clic en "Guardar" para generar la factura.</li>
+        </ul>
+        <p><strong>Ver y gestionar facturas:</strong></p>
+        <ul>
+          <li>Accede a la lista de facturas desde el menú principal.</li>
+          <li>Usa los filtros para buscar facturas por fecha, cliente o estado.</li>
+          <li>Haz clic en una factura específica para ver los detalles completos.</li>
+        </ul>
+      </section>
+
+      <section id="receipts">
+        <h3>Boletas</h3>
+        <p>Emite y gestiona las boletas de ventas a los clientes. Las boletas pueden ser generadas para ventas menores o
+          ventas al detalle.</p>
+        <p><strong>Emitir una nueva boleta:</strong></p>
+        <ul>
+          <li>Haz clic en "Nueva Boleta".</li>
+          <li>Selecciona el cliente o ingresa la información del cliente.</li>
+          <li>Añade los productos o servicios vendidos.</li>
+          <li>Introduce los detalles adicionales y haz clic en "Guardar".</li>
+        </ul>
+      </section>
+
+      <section id="guides">
+        <h3>Guias de Despacho</h3>
+        <p>Emite y gestiona las guías de despacho, que documentan el envío de productos desde el almacén hasta el
+          cliente.</p>
+        <p><strong>Crear una nueva guía de despacho:</strong></p>
+        <ul>
+          <li>Haz clic en "Nueva Guía de Despacho".</li>
+          <li>Selecciona el cliente y los productos a enviar.</li>
+          <li>Introduce los detalles del envío, como fecha y método de entrega.</li>
+          <li>Haz clic en "Guardar" para generar la guía de despacho.</li>
+        </ul>
+      </section>
+
+      <section id="catalog">
+        <h3>Catálogo</h3>
+        <p>Administra el catálogo de productos disponibles para la venta. Puedes añadir, modificar o eliminar productos
+          del catálogo.</p>
+        <p><strong>Agregar un nuevo producto:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Producto".</li>
+          <li>Rellena los campos requeridos como nombre, descripción, precio y stock.</li>
+          <li>Haz clic en "Guardar" para añadir el producto al catálogo.</li>
+        </ul>
+        <p><strong>Modificar un producto existente:</strong></p>
+        <ul>
+          <li>Selecciona el producto que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un producto:</strong></p>
+        <ul>
+          <li>Selecciona el producto que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+    </section>
+    <section id="purchases">
+      <h2>Compras</h2>
+      <p>En esta sección puedes gestionar las órdenes de compra, proveedores y pedidos realizados. A continuación,
+        encontrarás detalles sobre las funcionalidades disponibles.</p>
+
+      <section id="orders">
+        <h3>Pedidos</h3>
+        <p>Gestiona los pedidos realizados a proveedores, desde la creación hasta la recepción de los productos.</p>
+        <p><strong>Crear un nuevo pedido:</strong></p>
+        <ul>
+          <li>Haz clic en "Nuevo Pedido".</li>
+          <li>Selecciona el proveedor del cual deseas realizar el pedido.</li>
+          <li>Añade los productos o servicios que necesitas.</li>
+          <li>Introduce los detalles adicionales como la fecha de entrega y condiciones de pago.</li>
+          <li>Haz clic en "Guardar" para generar el pedido.</li>
+        </ul>
+        <p><strong>Gestionar pedidos existentes:</strong></p>
+        <ul>
+          <li>Accede a la lista de pedidos desde el menú principal.</li>
+          <li>Usa los filtros para buscar pedidos por fecha, proveedor o estado.</li>
+          <li>Haz clic en un pedido específico para ver los detalles completos y actualizar su estado.</li>
+        </ul>
+      </section>
+
+      <section id="suppliers">
+        <h3>Proveedores</h3>
+        <p>Gestiona la información de los proveedores, incluyendo sus datos de contacto y productos que ofrecen.</p>
+        <p><strong>Agregar un nuevo proveedor:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Proveedor".</li>
+          <li>Rellena los campos requeridos como nombre, dirección, teléfono y correo electrónico.</li>
+          <li>Haz clic en "Guardar" para almacenar la información del proveedor.</li>
+        </ul>
+        <p><strong>Modificar un proveedor existente:</strong></p>
+        <ul>
+          <li>Selecciona el proveedor que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un proveedor:</strong></p>
+        <ul>
+          <li>Selecciona el proveedor que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="productions">
+      <h2>Producción</h2>
+      <p>Gestiona todos los aspectos relacionados con la producción de productos en tu empresa. A continuación,
+        encontrarás detalles sobre las funcionalidades disponibles.</p>
+
+      <section id="products">
+        <h3>Productos</h3>
+        <p>Administra la lista de productos producidos, incluyendo su creación, modificación y eliminación.</p>
+        <p><strong>Agregar un nuevo producto:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Producto".</li>
+          <li>Rellena los campos requeridos como nombre, descripción, precio y cantidad en stock.</li>
+          <li>Haz clic en "Guardar" para añadir el producto a la lista.</li>
+        </ul>
+        <p><strong>Modificar un producto existente:</strong></p>
+        <ul>
+          <li>Selecciona el producto que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un producto:</strong></p>
+        <ul>
+          <li>Selecciona el producto que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+
+      <section id="categories">
+        <h3>Categorías</h3>
+        <p>Administra las categorías de productos, permitiendo una mejor organización y gestión.</p>
+        <p><strong>Agregar una nueva categoría:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Categoría".</li>
+          <li>Rellena los campos requeridos como nombre y descripción.</li>
+          <li>Haz clic en "Guardar" para añadir la categoría.</li>
+        </ul>
+        <p><strong>Modificar una categoría existente:</strong></p>
+        <ul>
+          <li>Selecciona la categoría que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar una categoría:</strong></p>
+        <ul>
+          <li>Selecciona la categoría que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+
+      <section id="inventories">
+        <h3>Inventarios</h3>
+        <p>Gestiona los inventarios de productos, asegurando que siempre haya suficiente stock para la producción y
+          venta.</p>
+        <p><strong>Realizar un ajuste de inventario:</strong></p>
+        <ul>
+          <li>Haz clic en "Ajustar Inventario".</li>
+          <li>Selecciona el producto cuyo inventario deseas ajustar.</li>
+          <li>Introduce la nueva cantidad en stock y una razón para el ajuste.</li>
+          <li>Haz clic en "Guardar" para aplicar el ajuste.</li>
+        </ul>
+      </section>
+
+      <section id="processes">
+        <h3>Procesos</h3>
+        <p>Administra los procesos de producción, desde la recepción de materias primas hasta el producto final.</p>
+        <p><strong>Crear un nuevo proceso de producción:</strong></p>
+        <ul>
+          <li>Haz clic en "Nuevo Proceso".</li>
+          <li>Selecciona los productos y materiales involucrados en el proceso.</li>
+          <li>Define las etapas del proceso y los tiempos estimados.</li>
+          <li>Haz clic en "Guardar" para añadir el proceso de producción.</li>
+        </ul>
+        <p><strong>Modificar un proceso existente:</strong></p>
+        <ul>
+          <li>Selecciona el proceso que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un proceso:</strong></p>
+        <ul>
+          <li>Selecciona el proceso que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+
+      <section id="transformations">
+        <h3>Transformaciones</h3>
+        <p>Gestiona las transformaciones de productos, permitiendo convertir materias primas en productos terminados.
+        </p>
+        <p><strong>Crear una nueva transformación:</strong></p>
+        <ul>
+          <li>Haz clic en "Nueva Transformación".</li>
+          <li>Selecciona los materiales a transformar y el producto final deseado.</li>
+          <li>Define las etapas de la transformación y los tiempos estimados.</li>
+          <li>Haz clic en "Guardar" para añadir la transformación.</li>
+        </ul>
+      </section>
+
+      <section id="warehouses">
+        <h3>Bodegas</h3>
+        <p>Administra las bodegas de almacenamiento, incluyendo la creación, modificación y eliminación de bodegas.</p>
+        <p><strong>Agregar una nueva bodega:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Bodega".</li>
+          <li>Rellena los campos requeridos como nombre y ubicación.</li>
+          <li>Haz clic en "Guardar" para añadir la bodega.</li>
+        </ul>
+        <p><strong>Modificar una bodega existente:</strong></p>
+        <ul>
+          <li>Selecciona la bodega que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar una bodega:</strong></p>
+        <ul>
+          <li>Selecciona la bodega que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+    </section>
+    <section id="logistics">
+      <h2>Logística</h2>
+      <p>Gestiona todos los aspectos logísticos de tu empresa, incluyendo la administración de vehículos, mantenciones y
+        despachos.</p>
+
+      <section id="vehicles">
+        <h3>Vehículos</h3>
+        <p>Administra la flota de vehículos utilizados para el transporte de productos.</p>
+        <p><strong>Agregar un nuevo vehículo:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Vehículo".</li>
+          <li>Rellena los campos requeridos como matrícula, modelo, marca y capacidad.</li>
+          <li>Haz clic en "Guardar" para añadir el vehículo a la flota.</li>
+        </ul>
+        <p><strong>Modificar un vehículo existente:</strong></p>
+        <ul>
+          <li>Selecciona el vehículo que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un vehículo:</strong></p>
+        <ul>
+          <li>Selecciona el vehículo que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+
+      <section id="maintenance">
+        <h3>Mantenciones</h3>
+        <p>Gestiona las mantenciones de los vehículos para asegurar su correcto funcionamiento.</p>
+        <p><strong>Programar una nueva mantención:</strong></p>
+        <ul>
+          <li>Haz clic en "Programar Mantención".</li>
+          <li>Selecciona el vehículo y el tipo de mantención.</li>
+          <li>Introduce la fecha y otros detalles relevantes.</li>
+          <li>Haz clic en "Guardar" para programar la mantención.</li>
+        </ul>
+        <p><strong>Gestionar mantenciones programadas:</strong></p>
+        <ul>
+          <li>Accede a la lista de mantenciones programadas desde el menú principal.</li>
+          <li>Usa los filtros para buscar mantenciones por fecha, vehículo o tipo de mantención.</li>
+          <li>Haz clic en una mantención específica para ver los detalles completos y actualizar su estado.</li>
+        </ul>
+      </section>
+
+      <section id="dispatches">
+        <h3>Despachos</h3>
+        <p>Gestiona los despachos de productos a clientes.</p>
+        <p><strong>Programar un nuevo despacho:</strong></p>
+        <ul>
+          <li>Haz clic en "Programar Despacho".</li>
+          <li>Selecciona los productos y el cliente destinatario.</li>
+          <li>Introduce la fecha de despacho y otros detalles relevantes.</li>
+          <li>Haz clic en "Guardar" para programar el despacho.</li>
+        </ul>
+        <p><strong>Gestionar despachos programados:</strong></p>
+        <ul>
+          <li>Accede a la lista de despachos programados desde el menú principal.</li>
+          <li>Usa los filtros para buscar despachos por fecha, cliente o estado.</li>
+          <li>Haz clic en un despacho específico para ver los detalles completos y actualizar su estado.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="staffs">
+      <h2>Personal</h2>
+      <p>Gestiona la información del personal de tu empresa, incluyendo empleados y sus roles.</p>
+
+      <section id="employees">
+        <h3>Empleados</h3>
+        <p>Administra la información de los empleados, incluyendo su contratación, roles y datos personales.</p>
+        <p><strong>Agregar un nuevo empleado:</strong></p>
+        <ul>
+          <li>Haz clic en "Añadir Empleado".</li>
+          <li>Rellena los campos requeridos como nombre, apellido, cargo y fecha de contratación.</li>
+          <li>Haz clic en "Guardar" para añadir el empleado a la lista.</li>
+        </ul>
+        <p><strong>Modificar un empleado existente:</strong></p>
+        <ul>
+          <li>Selecciona el empleado que deseas modificar del listado.</li>
+          <li>Haz clic en "Editar".</li>
+          <li>Actualiza la información necesaria y haz clic en "Guardar".</li>
+        </ul>
+        <p><strong>Eliminar un empleado:</strong></p>
+        <ul>
+          <li>Selecciona el empleado que deseas eliminar del listado.</li>
+          <li>Haz clic en "Eliminar" y confirma la acción.</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="tools">
+      <h2>Herramientas</h2>
+      <p>Accede a diversas herramientas del sistema, incluyendo la generación de informes, gestión de respaldos y
+        auditorías.</p>
+
+      <section id="reports">
+        <h3>Informes</h3>
+        <p>Genera y gestiona informes sobre diferentes aspectos de la operación de la empresa.</p>
+        <p><strong>Crear un nuevo informe:</strong></p>
+        <ul>
+          <li>Haz clic en "Nuevo Informe".</li>
+          <li>Selecciona el tipo de informe que deseas generar.</li>
+          <li>Introduce los parámetros necesarios, como rango de fechas y filtros específicos.</li>
+          <li>Haz clic en "Generar" para crear el informe.</li>
+        </ul>
+        <p><strong>Ver informes existentes:</strong></p>
+        <ul>
+          <li>Accede a la lista de informes generados desde el menú principal.</li>
+          <li>Usa los filtros para buscar informes por fecha, tipo o autor.</li>
+          <li>Haz clic en un informe específico para ver los detalles completos.</li>
+        </ul>
+      </section>
+
+      <section id="backups">
+        <h3>Respaldos</h3>
+        <p>Gestiona los respaldos del sistema para asegurar la integridad de los datos.</p>
+        <p><strong>Crear un nuevo respaldo:</strong></p>
+        <ul>
+          <li>Haz clic en "Nuevo Respaldo".</li>
+          <li>Selecciona las bases de datos o archivos que deseas respaldar.</li>
+          <li>Introduce una descripción y haz clic en "Iniciar Respaldo".</li>
+        </ul>
+        <p><strong>Ver respaldos existentes:</strong></p>
+        <ul>
+          <li>Accede a la lista de respaldos realizados desde el menú principal.</li>
+          <li>Usa los filtros para buscar respaldos por fecha o tipo.</li>
+          <li>Haz clic en un respaldo específico para ver los detalles completos y restaurarlo si es necesario.</li>
+        </ul>
+      </section>
+
+      <section id="audits">
+        <h3>Auditoría</h3>
+        <p>Realiza auditorías del sistema para revisar y asegurar la correcta operación y uso de los recursos.</p>
+        <p><strong>Iniciar una nueva auditoría:</strong></p>
+        <ul>
+          <li>Haz clic en "Nueva Auditoría".</li>
+          <li>Selecciona el tipo de auditoría que deseas realizar.</li>
+          <li>Introduce los parámetros necesarios y haz clic en "Iniciar".</li>
+        </ul>
+        <p><strong>Ver auditorías existentes:</strong></p>
+        <ul>
+          <li>Accede a la lista de auditorías realizadas desde el menú principal.</li>
+          <li>Usa los filtros para buscar auditorías por fecha, tipo o autor.</li>
+          <li>Haz clic en una auditoría específica para ver los detalles completos y los resultados.</li>
+        </ul>
+      </section>
+    </section>
+  </div>
+</div>
