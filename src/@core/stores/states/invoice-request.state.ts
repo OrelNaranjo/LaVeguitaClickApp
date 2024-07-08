@@ -16,6 +16,6 @@ export class InvoicesRequestState {
 
   @Action(CreateInvoice)
   createInvoice(ctx: StateContext<InvoiceRequestStateModel>, action: CreateInvoice) {
-    return this.invoiceService.createInvoice(action.payload)
+    return this.invoiceService.createInvoice(action.payload);
   }
 }

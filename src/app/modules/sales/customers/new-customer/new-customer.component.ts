@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Address } from '@shared/interfaces';
 import { NzFormDirective } from 'ng-zorro-antd/form';
-import { NzColDirective, NzGridModule, NzRowDirective } from 'ng-zorro-antd/grid';
+import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
 import { TitleService } from '@core/services';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { Store } from '@ngxs/store';
-import { AddressComponent } from '@components/index'
-import { CreateCustomer } from '@core/stores'
-import { NzTableComponent } from 'ng-zorro-antd/table'
+import { AddressComponent } from '@components/index';
+import { CreateCustomer } from '@core/stores';
+import { NzTableComponent } from 'ng-zorro-antd/table';
 
 @Component({
   selector: 'app-new-customer',
   standalone: true,
-  imports: [ReactiveFormsModule, AddressComponent, NzFormDirective, NzGridModule, NzTableComponent, NzRowDirective, NzColDirective, MatIconModule],
+  imports: [ReactiveFormsModule, AddressComponent, NzFormDirective, NzTableComponent, NzRowDirective, NzColDirective, MatIconModule],
   templateUrl: './new-customer.component.html',
   styleUrls: ['./new-customer.component.scss'],
 })
@@ -50,7 +50,15 @@ export class NewCustomerComponent {
 
   onAddressSubmit(address: Address) {
     this.showAddress = false;
-    this.addresses.push(address);
+    this.addresses = [...this.addresses, address];
+  }
+
+  onAddressCancel() {
+    this.showAddress = false;
+  }
+
+  deleteAddress(index: number) {
+    this.addresses = this.addresses.filter((_, i) => i !== index);
   }
 
   onSubmit() {

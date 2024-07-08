@@ -24,6 +24,6 @@ export const appConfig: ApplicationConfig = {
     provideNzI18n(es_ES),
     importProvidersFrom(FormsModule),
     provideStore(states),
-    { provide: LOCALE_ID, useValue: 'es-CL' }
+    { provide: LOCALE_ID, useValue: 'es-CL' },
   ],
 };

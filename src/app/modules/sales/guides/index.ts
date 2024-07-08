@@ -1,1 +1,1 @@
-export { GuideListComponent } from './guide-list/guide-list.component'
+export { GuideListComponent } from './guide-list/guide-list.component';

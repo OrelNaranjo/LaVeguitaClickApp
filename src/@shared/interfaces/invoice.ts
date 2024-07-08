@@ -1,6 +1,6 @@
-import { InvoiceRequest } from '../../@definitions'
+import { InvoiceRequest } from '../../@definitions';
 import { Customer } from './customer';
-import { Product } from './product'
+import { Product } from './product';
 
 export interface Invoice {
   id?: number;

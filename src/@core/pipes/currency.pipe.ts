@@ -11,9 +11,7 @@ export class CurrencyPipe implements PipeTransform {
     if (isNaN(numericValue) || typeof numericValue !== 'number') {
       return '';
     }
-    const formattedNumber = numericValue
-      .toFixed(0)
-      .replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    const formattedNumber = numericValue.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     return `${currencySymbol}${space}${formattedNumber}`;
   }
 }

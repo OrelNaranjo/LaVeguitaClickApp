@@ -11,7 +11,6 @@ import { tap } from 'rxjs';
     cities: [],
   },
 })
-
 @Injectable()
 export class CityState {
   constructor(private addressService: AddressService) {}

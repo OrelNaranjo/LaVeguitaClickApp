@@ -3,7 +3,7 @@ import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs';
 import { Invoice, InvoiceStateModel } from '../../../@shared';
 import { InvoiceService } from '@core/services';
-import { LoadInvoices } from '../actions'
+import { LoadInvoices } from '../actions';
 
 @State<InvoiceStateModel>({
   name: 'invoices',

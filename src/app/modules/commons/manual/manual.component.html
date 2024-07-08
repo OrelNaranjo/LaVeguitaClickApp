@@ -5,7 +5,8 @@
     <h2>Índice</h2>
     <ul>
       <li><a routerLink="/doc" [fragment]="'home'">Inicio</a></li>
-      <li><a routerLink="/doc" [fragment]="'sales'">Ventas</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'sales'">Ventas</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'clients'">Clientes</a></li>
           <li><a routerLink="/doc" [fragment]="'invoices'">Facturas</a></li>
@@ -14,13 +15,15 @@
           <li><a routerLink="/doc" [fragment]="'catalog'">Catálogo</a></li>
         </ul>
       </li>
-      <li><a routerLink="/doc" [fragment]="'purchases'">Compras</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'purchases'">Compras</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'orders'">Pedidos</a></li>
           <li><a routerLink="/doc" [fragment]="'suppliers'">Proveedores</a></li>
         </ul>
       </li>
-      <li><a routerLink="/doc" [fragment]="'productions'">Producción</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'productions'">Producción</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'products'">Productos</a></li>
           <li><a routerLink="/doc" [fragment]="'categories'">Categorías</a></li>
@@ -30,19 +33,22 @@
           <li><a routerLink="/doc" [fragment]="'warehouses'">Bodegas</a></li>
         </ul>
       </li>
-      <li><a routerLink="/doc" [fragment]="'logistics'">Logística</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'logistics'">Logística</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'vehicules'">Vehículos</a></li>
           <li><a routerLink="/doc" [fragment]="'maintenance'">Mantenciones</a></li>
           <li><a routerLink="/doc" [fragment]="'dispatches'">Despachos</a></li>
         </ul>
       </li>
-      <li><a routerLink="/doc" [fragment]="'staffs'">Personal</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'staffs'">Personal</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'employees'">Empleados</a></li>
         </ul>
       </li>
-      <li><a routerLink="/doc" [fragment]="'tools'">Herramientas</a>
+      <li>
+        <a routerLink="/doc" [fragment]="'tools'">Herramientas</a>
         <ul>
           <li><a routerLink="/doc" [fragment]="'reports'">Informes</a></li>
           <li><a routerLink="/doc" [fragment]="'backups'">Respaldos</a></li>
@@ -63,7 +69,6 @@
     <app-manual-logistics />
     <app-manual-staffs />
     <app-manual-tools />
-
   </div>
 </div>
 <button class="upper" (click)="upperPage()">Subir</button>

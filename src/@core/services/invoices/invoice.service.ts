@@ -1,15 +1,14 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs'
-import { Invoice } from '@shared/interfaces'
-import { environment } from '@config/environments'
-import { InvoiceRequest } from '../../../@definitions'
+import { Observable } from 'rxjs';
+import { Invoice } from '@shared/interfaces';
+import { environment } from '@config/environments';
+import { InvoiceRequest } from '../../../@definitions';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InvoiceService {
-
   constructor(private http: HttpClient) {}
 
   getInvoices(): Observable<Invoice> {

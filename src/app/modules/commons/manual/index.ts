@@ -4,4 +4,3 @@ export { ManualPurchasesComponent } from './manual-purchases/manual-purchases.co
 export { ManualSalesComponent } from './manual-sales/manual-sales.component';
 export { ManualStaffsComponent } from './manual-staffs/manual-staffs.component';
 export { ManualToolsComponent } from './manual-tools/manual-tools.component';
-

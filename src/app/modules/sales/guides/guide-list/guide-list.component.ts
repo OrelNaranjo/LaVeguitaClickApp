@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './guide-list.component.html',
-  styleUrl: './guide-list.component.scss'
+  styleUrl: './guide-list.component.scss',
 })
-export class GuideListComponent {
-
-}
+export class GuideListComponent {}

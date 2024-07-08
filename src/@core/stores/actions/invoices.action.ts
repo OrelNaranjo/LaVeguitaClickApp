@@ -1,4 +1,4 @@
-import { InvoiceRequest } from '@definitions/requests'
+import { InvoiceRequest } from '@definitions/requests';
 
 export class LoadInvoices {
   static readonly type = '[Products] Load Products';

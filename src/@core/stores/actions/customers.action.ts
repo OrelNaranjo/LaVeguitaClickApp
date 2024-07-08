@@ -1,4 +1,4 @@
-import { Customer } from '@shared/interfaces'
+import { Customer } from '@shared/interfaces';
 
 export class LoadCustomers {
   static readonly type = '[Customers] Load Customers';

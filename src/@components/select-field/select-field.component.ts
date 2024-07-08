@@ -1,10 +1,12 @@
 import { Component, EventEmitter, forwardRef, Input, Output, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observable } from 'rxjs'
+import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-select-field',
   standalone: true,
+  imports: [NzColDirective, NzRowDirective],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -15,7 +17,7 @@ import { Observable } from 'rxjs'
   templateUrl: './select-field.component.html',
   styleUrls: ['./select-field.component.scss'],
 })
-export class SelectFieldComponent<T extends { id: number, name: string }> implements ControlValueAccessor, OnInit {
+export class SelectFieldComponent<T extends { id: number; name: string }> implements ControlValueAccessor, OnInit {
   @Input() options$!: Observable<T[]>;
   @Input() label = '';
   @Input() id = '';
@@ -33,7 +35,7 @@ export class SelectFieldComponent<T extends { id: number, name: string }> implem
   onTouched: () => void = () => {};
 
   ngOnInit(): void {
-    this.options$.subscribe(options => {
+    this.options$.subscribe((options) => {
       this.options = options;
     });
   }

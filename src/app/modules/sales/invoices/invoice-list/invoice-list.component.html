@@ -1,8 +1,6 @@
 <nz-row nzJustify="end">
   <nz-col nzSpan="24">
-    <button class="mb0 btn-group" [routerLink]="['new']">
-      <mat-icon>add</mat-icon><span>Nueva Factura</span>
-    </button>
+    <button class="mb0 btn-group" [routerLink]="['new']"><mat-icon>add</mat-icon><span>Nueva Factura</span></button>
   </nz-col>
 </nz-row>
 <nz-table #invoiceTable [nzBordered]="true">
@@ -17,16 +15,17 @@
   </thead>
   <tbody>
     @for (invoice of invoices$(); track $index) {
-    <tr>
-      <td>{{ invoice.id }}</td>
-      <td>{{ invoice.customer.first_name }} {{ invoice.customer.last_name }}</td>
-      <td>{{ invoice.date | date:'fullDate' | titlecase }}</td>
-      <td>{{ invoice.total | currency }}</td>
-      <td>
-        <button class="btn-primary" [routerLink]="[invoice.id]">
-          <mat-icon>visibility</mat-icon>
-        </button>
-    </tr>
+      <tr>
+        <td>{{ invoice.id }}</td>
+        <td>{{ invoice.customer.first_name }} {{ invoice.customer.last_name }}</td>
+        <td>{{ invoice.date | date: 'fullDate' | titlecase }}</td>
+        <td>{{ invoice.total | currency }}</td>
+        <td>
+          <button class="btn-primary" [routerLink]="[invoice.id]">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </tr>
     }
   </tbody>
 </nz-table>

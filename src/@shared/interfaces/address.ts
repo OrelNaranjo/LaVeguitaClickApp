@@ -1,7 +1,7 @@
-import { City } from './city'
+import { City } from './city';
 import { Commune } from './commune';
-import { Country } from './country'
-import { Region } from './region'
+import { Country } from './country';
+import { Region } from './region';
 
 export interface Address {
   id: number;

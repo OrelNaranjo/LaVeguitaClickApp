@@ -6,7 +6,7 @@ import { Customer } from '@shared/interfaces';
 import { LoadCustomers, DeleteCustomer } from '@core/stores/actions';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { NzColDirective, NzGridModule, NzRowDirective } from 'ng-zorro-antd/grid'
+import { NzColDirective, NzGridModule, NzRowDirective } from 'ng-zorro-antd/grid';
 
 @Component({
   selector: 'app-customer-list',

@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './dispatche-list.component.html',
-  styleUrl: './dispatche-list.component.scss'
+  styleUrl: './dispatche-list.component.scss',
 })
-export class DispatcheListComponent {
-
-}
+export class DispatcheListComponent {}

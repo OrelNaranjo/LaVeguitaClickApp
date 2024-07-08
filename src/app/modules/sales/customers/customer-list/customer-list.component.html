@@ -1,8 +1,6 @@
 <nz-row nzJustify="end">
   <nz-col nzSpan="24">
-    <button class="mb0 btn-group" [routerLink]="['new']">
-      <mat-icon>add</mat-icon><span>Nuevo Cliente</span>
-    </button>
+    <button class="mb0 btn-group" [routerLink]="['new']"><mat-icon>add</mat-icon><span>Nuevo Cliente</span></button>
   </nz-col>
 </nz-row>
 <table>
@@ -18,24 +16,24 @@
   </thead>
   <tbody>
     @for (customer of customers$(); track customer.id) {
-    <tr>
-      <td>{{ customer.rut }}</td>
-      <td>{{ customer.first_name }} {{ customer.last_name }}</td>
-      <td>{{ customer.email ? customer.email : 'Sin correo' }}</td>
-      <td>{{ customer.phone }}</td>
-      <td>{{ customer.addresses[0].street }} - {{ customer.addresses[0].commune.name }}</td>
-      <td>
-        <button class="btn-primary" [routerLink]="[customer.id, 'view']">
-          <mat-icon>visibility</mat-icon>
-        </button>
-        <button class="btn-warning" [routerLink]="[customer.id, 'edit']">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button class="btn-danger" (click)="deleteCustomer(customer)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </tr>
+      <tr>
+        <td>{{ customer.rut }}</td>
+        <td>{{ customer.first_name }} {{ customer.last_name }}</td>
+        <td>{{ customer.email ? customer.email : 'Sin correo' }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.addresses[0].street }} - {{ customer.addresses[0].commune.name }}</td>
+        <td>
+          <button class="btn-primary" [routerLink]="[customer.id, 'view']">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button class="btn-warning" [routerLink]="[customer.id, 'edit']">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="btn-danger" (click)="deleteCustomer(customer)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
     }
   </tbody>
 </table>

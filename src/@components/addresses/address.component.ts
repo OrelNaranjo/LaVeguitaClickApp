@@ -1,18 +1,22 @@
 import { Country } from './../../@shared/interfaces/country';
 import { SelectFieldComponent } from './../select-field/select-field.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, ReactiveFormsModule, Validators, FormControl } from '@angular/forms';
 import { Store } from '@ngxs/store';
 import { Commune, Region, City, Address } from '@shared/interfaces';
 import { LoadCountries, LoadRegions, LoadCities, LoadCommunes, CountryState, RegionState, CityState, CommuneState } from '../../@core';
 import { Observable, of } from 'rxjs';
 import { map, switchMap, startWith } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
+import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
+import { NzFormControlComponent } from 'ng-zorro-antd/form'
 
 @Component({
   selector: 'app-addresses',
   standalone: true,
-  imports: [ReactiveFormsModule, SelectFieldComponent, AsyncPipe],
+  imports: [
+    NzFormControlComponent,
+    ReactiveFormsModule, SelectFieldComponent, AsyncPipe, NzColDirective, NzRowDirective],
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss'],
 })
@@ -38,18 +42,20 @@ export class AddressComponent {
 
   @Input() display = true;
   @Output() addressSubmit = new EventEmitter<Address>();
+  @Output() addressCancel = new EventEmitter();
 
   constructor(
     private fb: FormBuilder,
     private store: Store,
   ) {
-    this.addressForm = this.fb.group({
-      street: ['', Validators.required],
-      zip_code: ['', Validators.required],
-      country: [''],
-      region: [{ value: '', disabled: true }],
-      city: [{ value: '', disabled: true }],
-      commune: [{ value: '', disabled: true }, Validators.required],
+
+    this.addressForm = new FormGroup({
+      street: new FormControl('', Validators.required),
+      zip_code: new FormControl('', Validators.required),
+      country: new FormControl(''),
+      region: new FormControl({ value: '', disabled: true }),
+      city: new FormControl({ value: '', disabled: true }),
+      commune: new FormControl({ value: '', disabled: true }, Validators.required),
     });
 
     this.store.dispatch(new LoadCountries());
@@ -135,6 +141,11 @@ export class AddressComponent {
       this.addressSubmit.emit(this.addressForm.value);
       this.addressForm.reset();
     }
+  }
+
+  onCancel(): void {
+    this.addressForm.reset();
+    this.addressCancel.emit();
   }
 
   setDisabledState?(isDisabled: boolean): void {

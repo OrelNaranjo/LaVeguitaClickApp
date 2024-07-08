@@ -8,9 +8,8 @@ describe('GuideListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GuideListComponent]
-    })
-    .compileComponents();
+      imports: [GuideListComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GuideListComponent);
     component = fixture.componentInstance;

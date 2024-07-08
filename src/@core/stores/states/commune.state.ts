@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AddressService } from '../../services/address/address.service';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Commune, CommuneStateModel } from '@shared/interfaces';
-import { LoadCommunes } from '../actions'
+import { LoadCommunes } from '../actions';
 import { tap } from 'rxjs';
 
 @State<CommuneStateModel>({
