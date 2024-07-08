@@ -1,0 +1,6 @@
+.upper {
+  position: fixed; /* Posicionamiento fijo respecto al viewport */
+  bottom: 20px; /* Distancia desde la parte inferior del viewport */
+  right: 20px; /* Distancia desde la parte derecha del viewport para alinear el botón a la derecha */
+  z-index: 1000; /* Asegura que el botón se muestre por encima de otros elementos de la página */
+}
