@@ -1,19 +1,32 @@
-<div class="sales-container">
-  <div class="sales-content">
-    <div class="card">
-      <h2>Gestión de Ventas</h2>
-      <p>
-        Supervise de manera eficiente todas las actividades relacionadas con las ventas y pedidos de los clientes. Gestione y controle las facturas y
-        boletas emitidas, manteniendo un registro detallado y organizado. Administre la información de los clientes, asegurando un seguimiento
-        adecuado de sus pedidos y preferencias. Además, mantenga actualizado el catálogo de productos, facilitando la consulta y selección de
-        artículos por parte de los clientes. Con esta herramienta, optimice el flujo de ventas y mejore la satisfacción del cliente.
-      </p>
-      <div class="btn-group">
-        <button type="button" routerLink="receipts/new">Crear Nueva Boleta</button>
-        <button type="button" routerLink="invoices/new">Crear Nueva Factura</button>
-        <button type="button" routerLink="clients">Lista de Clientes</button>
-        <button type="button" routerLink="catalogs">Lista de Catálogo</button>
-      </div>
-    </div>
-  </div>
-</div>
+<nz-row class="sales-container">
+  <nz-col nzSpan="24">
+      <nz-card>
+        <nz-card-meta
+          nzTitle="Gestión de Ventas"
+          nzDescription="Supervise de manera eficiente todas las actividades relacionadas con las ventas y pedidos de los clientes. Gestione y controle las facturas y boletas emitidas, manteniendo un registro detallado y organizado. Administre la información de los clientes, asegurando un seguimiento adecuado de sus pedidos y preferencias. Además, mantenga actualizado el catálogo de productos, facilitando la consulta y selección de artículos por parte de los clientes. Con esta herramienta, optimice el flujo de ventas y mejore la satisfacción del cliente."
+        ></nz-card-meta>
+        <div nz-row class="btn-group" nzGutter="8">
+          <nz-col nzSpan="5">
+            <button nz-button nzType="primary" routerLink="receipts/new">
+              <i nz-icon nzType="file-add" nzTheme="outline"></i> Nueva Boleta
+            </button>
+          </nz-col>
+          <nz-col nzSpan="5">
+            <button nz-button nzType="primary" routerLink="invoices/new">
+              <i nz-icon nzType="file-done" nzTheme="outline"></i> Nueva Factura
+            </button>
+          </nz-col>
+          <nz-col nzSpan="5">
+            <button nz-button nzType="primary" routerLink="clients">
+              <i nz-icon nzType="team" nzTheme="outline"></i> Lista de Clientes
+            </button>
+          </nz-col>
+          <nz-col nzSpan="5">
+            <button nz-button nzType="primary" routerLink="catalogs">
+              <i nz-icon nzType="appstore" nzTheme="outline"></i> Lista de Catálogo
+            </button>
+          </nz-col>
+        </div>
+      </nz-card>
+  </nz-col>
+</nz-row>

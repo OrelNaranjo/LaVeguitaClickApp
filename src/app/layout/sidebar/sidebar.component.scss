@@ -59,7 +59,7 @@
     transition: all 0.3s;
     border-left: 3px solid transparent;
     cursor: pointer;
-    text-shadow: 0.5px 0.5px 0.3px rgba(0, 0, 0, 0.5);
+    text-shadow: 0.1px 0.2px 0.1px rgba(0, 0, 0, 0.5);
 
     &:hover {
       background: $bg-light-green;
@@ -113,12 +113,12 @@
     color: $txt-primary;
     cursor: pointer;
     transition: all 1s;
-    padding: 5px 0;
+    padding: 8px 5px 8px 3px;
     border-radius: 0px 10px 10px 0;
     margin: 0;
 
     &:hover {
-      background-color: $bg-light-green;
+      background-color: $txt-green;
     }
   }
 }
@@ -127,7 +127,7 @@
   position: relative;
   background-color: transparent;
   border: none;
-  padding: 0 25px 0 15px;
+  padding: 0 20px 0 15px;
   margin-bottom: 0.5rem;
 
   cursor: pointer;
@@ -145,14 +145,11 @@
 
 .txt-logout {
   color: $txt-green;
-  text-shadow: 0.5px 0.5px 0.3px rgba(0, 0, 0, 0.5);
+  font-size: .8rem;
 }
 
 .logout-icon {
+  font-size: .8rem;
   color: $txt-green;
-  position: absolute;
-  top: 3.5px;
-  right: 3px;
-  font-size: 0.8rem;
-  padding-bottom: 0px;
+  margin: 0 .2rem 0 .5rem;
 }

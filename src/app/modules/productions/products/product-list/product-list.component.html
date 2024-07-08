@@ -1,5 +1,5 @@
-<div class="text-end">
-  <button class="btn btn-primary" [routerLink]="['/products', 'new']"><mat-icon>add</mat-icon><span>Nuevo Producto</span></button>
+<div class="text-end mb1">
+  <button [routerLink]="['/products', 'new']"><i nz-icon nzType="plus"  nzTheme="outline"></i><span>Nuevo Producto</span></button>
 </div>
 
 <table class="table table-striped table-bordered">
@@ -18,7 +18,7 @@
       <tr [ngClass]="{ 'table-danger': !product.is_active }">
         <td>
           <img class="product-img" *ngIf="product.images.length > 0; else defaultImage" [src]="product.images[0].url" [alt]="product.name" />
-          <ng-template #defaultImage> <span class="no-img">Sin Imagen</span><mat-icon class="no-img-icon">no_photography</mat-icon> </ng-template>
+          <ng-template #defaultImage> <span class="no-img">Sin Imagen</span><i class="no-img-icon" nz-icon nzType="camera" nzTheme="outline"></i></ng-template>
         </td>
         <td>{{ product.sku }}</td>
         <td>{{ product.name }}</td>
@@ -26,13 +26,13 @@
         <td>{{ product.price | currency }}</td>
         <td>
           <button class="btn-primary" [routerLink]="['/product', product.id, 'view']">
-            <mat-icon>visibility</mat-icon>
+            <i nz-icon nzType="eye" nzTheme="outline"></i>
           </button>
           <button class="btn-warning" [routerLink]="['/product', product.id, 'edit']">
-            <mat-icon>edit</mat-icon>
+            <i nz-icon nzType="edit" nzTheme="outline"></i>
           </button>
           <button class="btn-danger" (click)="deleteProduct(product)">
-            <mat-icon>delete</mat-icon>
+            <i nz-icon nzType="delete" nzTheme="outline"></i>
           </button>
         </td>
       </tr>

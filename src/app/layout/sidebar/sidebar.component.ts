@@ -1,25 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '@shared/interfaces';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@core/services';
-import { MatIconModule } from '@angular/material/icon';
+import { NzIconDirective } from 'ng-zorro-antd/icon'
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, MatIconModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, NzIconDirective],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   user: User | null = null;
   openedAside = true;
+  mediaQueryList: MediaQueryList;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.mediaQueryList = window.matchMedia('(max-width: 568px)');
+  }
 
   ngOnInit() {
     this.user = this.authService.getUser();
+    this.handleMediaChange(this.mediaQueryList);
+    this.mediaQueryList.addEventListener('change', this.handleMediaChange);
   }
 
   logout() {
@@ -30,21 +35,33 @@ export class SidebarComponent implements OnInit {
     event.preventDefault();
   }
 
+  ngOnDestroy(): void {
+    this.mediaQueryList.removeEventListener('change', this.handleMediaChange);
+  }
+
   toggleAside() {
     this.openedAside = !this.openedAside;
+    this.updateLayout();
+  }
+
+  handleMediaChange = (event: MediaQueryListEvent | MediaQueryList) => {
+    this.openedAside = !event.matches;
+    this.updateLayout();
+  }
+
+  updateLayout() {
     const aside = document.querySelector('.grid-aside') as HTMLElement;
     const headerTitle = document.querySelector('.title') as HTMLElement;
     const container = document.querySelector('.grid-container') as HTMLElement;
 
-    if (aside && headerTitle) {
-      aside.classList.toggle('grid-aside-hidden');
-      headerTitle.classList.toggle('title-aside-hidden');
-
-      if (aside.classList.contains('grid-aside-hidden')) {
-        container.style.gridTemplateColumns = '0px 1fr';
-      } else {
-        container.style.gridTemplateColumns = '220px 1fr';
-      }
+    if (this.openedAside) {
+      aside?.classList.remove('grid-aside-hidden');
+      headerTitle?.classList.remove('title-aside-hidden');
+      container.style.gridTemplateColumns = '220px 1fr';
+    } else {
+      aside?.classList.add('grid-aside-hidden');
+      headerTitle?.classList.add('title-aside-hidden');
+      container.style.gridTemplateColumns = '0px 1fr';
     }
   }
 }

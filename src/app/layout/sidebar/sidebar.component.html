@@ -1,6 +1,6 @@
 <div class="toogle-aside">
   <button (click)="toggleAside()">
-    <mat-icon>{{ openedAside ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</mat-icon>
+    <i nz-icon [nzType]="openedAside ? 'double-left' : 'double-right'" nzTheme="outline"></i>
   </button>
 </div>
 <div class="profile-container">
@@ -9,7 +9,7 @@
     <div class="profile-text">{{ user?.name }} {{ user?.lastname }}</div>
     <small>{{ user?.role?.description }}</small>
     <button class="logout" (click)="logout()">
-      <span class="txt-logout"><mat-icon class="logout-icon">logout</mat-icon>Cerrar Sesión</span>
+      <span class="txt-logout"><i class="logout-icon" nz-icon nzType="logout" nzTheme="outline"></i>Cerrar Sesión</span>
     </button>
   </div>
 </div>

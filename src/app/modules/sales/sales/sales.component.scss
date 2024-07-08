@@ -1,14 +1,23 @@
-.btn-group {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
+.sales-container {
+  max-width: 600px;
+
+  nz-card {
+    border-radius: 1rem;
+  }
 }
 
-.card {
-  padding: 1rem;
-  border: 1px solid #3b3b3b;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+button {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  i {
+    margin-right: .5rem;
+  }
+}
+
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
 }

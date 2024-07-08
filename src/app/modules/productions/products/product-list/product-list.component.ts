@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { Component, Signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { TitleService } from '@core/services';
-import { MatIconModule } from '@angular/material/icon';
 import { Store } from '@ngxs/store';
-import { DeleteProduct, LoadProducts } from '../../../../../@core';
+import { CurrencyPipe, DeleteProduct, LoadProducts } from '../../../../../@core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { NzIconDirective } from 'ng-zorro-antd/icon'
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [RouterLink, CommonModule, MatIconModule],
+  imports: [RouterLink, CommonModule, CurrencyPipe, NzIconDirective],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
 })
