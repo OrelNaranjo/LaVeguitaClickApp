@@ -19,3 +19,5 @@ export * from './stock';
 export * from './supplier';
 export * from './user';
 export * from './warehouse';
+export * from './order-detail';
+export * from './order';
