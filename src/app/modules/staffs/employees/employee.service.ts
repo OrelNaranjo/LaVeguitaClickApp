@@ -8,11 +8,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private employeeUrl = `${environment.API_URL}/employees`;
+  private employeeUrl = `${environment.API_URL}employees`;
 
   constructor(private http: HttpClient) {}
 
   getAllEmployees(): Observable<Employee[]> {
+    console.log('Getting all employees');
+    console.log(this.http.get<Employee[]>(this.employeeUrl).forEach((employee) => console.log(employee)));
     return this.http.get<Employee[]>(this.employeeUrl);
   }
 

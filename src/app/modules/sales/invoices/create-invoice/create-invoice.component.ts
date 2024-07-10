@@ -10,7 +10,7 @@ import { NzColDirective, NzGridModule } from 'ng-zorro-antd/grid';
 import { CurrencyPipe } from '@core/pipes';
 import { TitleService } from '@core/services';
 import { Store } from '@ngxs/store';
-import { LoadCustomers, LoadInvoices, LoadProducts } from '@core/stores';
+import { LoadCustomers, LoadProducts } from '@core/stores';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { InvoiceRequest } from '@definitions/requests';
@@ -116,7 +116,6 @@ export class CreateInvoiceComponent implements OnInit, AfterViewInit {
         })),
       };
       this.store.dispatch(new CreateInvoice(newInvoice));
-      this.store.dispatch(new LoadInvoices(true));
       this.resetForm();
       this.router.navigate(['/sales/invoices']);
     }

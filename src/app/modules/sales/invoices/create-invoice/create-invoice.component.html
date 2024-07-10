@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="createInvoiceForm" (ngSubmit)="submitInvoice()">
+<form nz-form [formGroup]="createInvoiceForm">
   <nz-row>
     <nz-col [nzSpan]="2">Cliente</nz-col>
     <nz-col [nzSpan]="1">:</nz-col>
@@ -93,7 +93,7 @@
   </nz-row>
   <nz-row>
     <nz-col [nzSpan]="24">
-      <button nz-button nzType="primary" [disabled]="!createInvoiceForm.valid" (click)="submitInvoice()">Crear Factura</button>
+      <button type="button" (click)="submitInvoice()">Crear Factura</button>
     </nz-col>
   </nz-row>
 </form>

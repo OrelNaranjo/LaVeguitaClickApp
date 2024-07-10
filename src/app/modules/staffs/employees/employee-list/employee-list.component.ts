@@ -21,6 +21,7 @@ export class EmployeeListComponent {
     private titleService: TitleService,
   ) {
     this.titleService.setTitle('Lista de Empleados');
+    this.employees$()?.forEach((employee) => console.log(employee));
   }
 
   deleteEmployee(id: number) {

@@ -6,11 +6,11 @@
 <nz-table #invoiceTable [nzBordered]="true">
   <thead>
     <tr>
-      <th nzWidth="10%">#</th>
-      <th nzWidth="30%">Cliente</th>
-      <th nzWidth="20%">Fecha</th>
-      <th nzWidth="20%">Total</th>
-      <th nzWidth="20%">Acciones</th>
+      <th>#</th>
+      <th>Cliente</th>
+      <th>Fecha</th>
+      <th>Total</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +21,7 @@
         <td>{{ invoice.date | date: 'fullDate' | titlecase }}</td>
         <td>{{ invoice.total | currency }}</td>
         <td>
-          <button class="btn-primary" [routerLink]="[invoice.id]">
+          <button type="button" class="btn-primary" [routerLink]="[invoice.id]">
             <mat-icon>visibility</mat-icon>
           </button>
         </td>
