@@ -1,9 +1,9 @@
+import { Account } from './../../../@shared/interfaces/account';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { User } from '@shared/interfaces';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@core/services';
-import { NzIconDirective } from 'ng-zorro-antd/icon'
+import { NzIconDirective } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,7 +13,7 @@ import { NzIconDirective } from 'ng-zorro-antd/icon'
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-  user: User | null = null;
+  account: Account | null = null;
   openedAside = true;
   mediaQueryList: MediaQueryList;
 
@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.user = this.authService.getUser();
+    this.account = this.authService.getUser();
     this.handleMediaChange(this.mediaQueryList);
     this.mediaQueryList.addEventListener('change', this.handleMediaChange);
   }
@@ -47,7 +47,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   handleMediaChange = (event: MediaQueryListEvent | MediaQueryList) => {
     this.openedAside = !event.matches;
     this.updateLayout();
-  }
+  };
 
   updateLayout() {
     const aside = document.querySelector('.grid-aside') as HTMLElement;

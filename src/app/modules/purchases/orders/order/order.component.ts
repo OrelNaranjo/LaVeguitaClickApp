@@ -93,7 +93,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
     if (this.createOrderForm.valid && this.addedProducts.length > 0 && this.createOrderForm.value.supplier) {
       const newOrder: OrderRequest = {
         supplier: this.createOrderForm.value.supplier,
-        employee: this.authService.getUser()!.account.employee as Employee,
+        employee: this.authService.getUser()!.employee as Employee,
         notes: this.createOrderForm.value?.notes,
         sendEmail: this.createOrderForm.value?.sendEmail,
         orderDetails: this.addedProducts.map(({ product, quantity }) => ({

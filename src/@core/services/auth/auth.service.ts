@@ -4,7 +4,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { environment } from '@config/environments';
 import { LoginResponse } from '@definitions/responses';
-import { User, LoginCredentials } from '@shared/interfaces';
+import { Account, LoginCredentials } from '@shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ import { User, LoginCredentials } from '@shared/interfaces';
 export class AuthService {
   private apiUrl = environment.API_URL;
   private token = signal<string | null>(null);
-  private user = signal<User | null>(null);
+  private account = signal<Account | null>(null);
 
   constructor(private http: HttpClient) {}
 
@@ -33,15 +33,15 @@ export class AuthService {
     return this.token();
   }
 
-  getUser(): User | null {
-    return this.user();
+  getUser(): Account | null {
+    return this.account();
   }
 
   setToken(token: string | null) {
     this.token.set(token);
     if (token) {
-      const decoded: User = jwtDecode(token);
-      this.user.set(decoded || null);
+      const decoded: Account = jwtDecode(token);
+      this.account.set(decoded || null);
       if (localStorage.getItem('token') === token) {
         sessionStorage.removeItem('token');
       } else if (sessionStorage.getItem('token') === token) {

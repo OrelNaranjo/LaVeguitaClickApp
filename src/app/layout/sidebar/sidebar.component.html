@@ -6,8 +6,8 @@
 <div class="profile-container">
   <div class="profile text-center">
     <img class="profile-img" src="/images/profiles/profile.png" alt="profile" />
-    <div class="profile-text">{{ user?.first_name }} {{ user?.last_name }}</div>
-    <small>{{ user?.role?.description }}</small>
+    <div class="profile-text">{{ account!.first_name }} {{ account!.last_name }}</div>
+    <small>{{ account!.roles[0].description }}</small>
     <button class="logout" (click)="logout()">
       <span class="txt-logout"><i class="logout-icon" nz-icon nzType="logout" nzTheme="outline"></i>Cerrar Sesión</span>
     </button>

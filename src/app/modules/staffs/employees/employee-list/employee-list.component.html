@@ -16,9 +16,9 @@
       @for (employee of employees$(); track employee.id) {
       <tr>
         <td>{{ employee.run }}</td>
-        <td>{{ employee.account.user.first_name }}</td>
-        <td>{{ employee.account.user.last_name }}</td>
-        <td>{{ employee.account.user.email }}</td>
+        <td>{{ employee.account.first_name }}</td>
+        <td>{{ employee.account.last_name }}</td>
+        <td>{{ employee.account.email }}</td>
         <td>{{ employee.phone }}</td>
         <td>{{ employee.employeeDetails[0].position }}</td>
         <td>{{ employee.addresses[0].street }}, {{ employee.addresses[0].zip_code }}</td>

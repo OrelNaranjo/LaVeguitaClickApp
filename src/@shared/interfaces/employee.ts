@@ -12,5 +12,4 @@ export interface Employee {
   account: Account;
   employeeDetails: EmployeeDetail[];
   addresses: Address[];
-  is_deleted: boolean;
 }

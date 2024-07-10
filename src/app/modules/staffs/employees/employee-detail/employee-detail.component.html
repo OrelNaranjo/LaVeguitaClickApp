@@ -3,9 +3,9 @@
 <div class="employee-info">
   <h3>Información Personal</h3>
   <p><strong>RUT:</strong> {{ employee.run }}</p>
-  <p><strong>Nombre:</strong> {{ employee.account.user.first_name }}</p>
-  <p><strong>Apellido:</strong> {{ employee.account.user.last_name }}</p>
-  <p><strong>Email:</strong> {{ employee.account.user.email }}</p>
+  <p><strong>Nombre:</strong> {{ employee.account.first_name }}</p>
+  <p><strong>Apellido:</strong> {{ employee.account.last_name }}</p>
+  <p><strong>Email:</strong> {{ employee.account.email }}</p>
   <p><strong>Teléfono:</strong> {{ employee.phone }}</p>
   <p><strong>Fecha de Nacimiento:</strong> {{ employee.birth_date | date: 'dd-MM-yyyy' }}</p>
 </div>

@@ -18,7 +18,7 @@ export * from './receipt';
 export * from './region';
 export * from './stock';
 export * from './supplier';
-export * from './user';
+export * from './account';
 export * from './warehouse';
 export * from './order-detail';
 export * from './order';
