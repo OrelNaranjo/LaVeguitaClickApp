@@ -1,1 +1,1 @@
-export { InvoiceRequest } from './invoice-request';
+export { OrderRequest } from './order-request';

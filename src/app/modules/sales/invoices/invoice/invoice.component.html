@@ -1,0 +1,88 @@
+<form nz-form [formGroup]="createInvoiceForm">
+  <nz-row>
+    <nz-col [nzSpan]="2">Cliente</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-select formControlName="customer" nzShowSearch nzPlaceHolder="Seleccionar cliente">
+        @for (customer of customers$(); track $index) {
+        <nz-option [nzLabel]="customer.rut + ' | ' + customer.first_name + ' ' + customer.last_name"
+          [nzValue]="customer"></nz-option>
+        }
+      </nz-select>
+    </nz-col>
+    <nz-col [nzSpan]="9"></nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="2">Producto</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-select #selectInput formControlName="selectedProduct" nzShowSearch nzPlaceHolder="Seleccionar producto"
+        (keydown.enter)="focusQuantityInput()">
+        @for (product of products$(); track $index) {
+        <nz-option [nzLabel]="product.sku + ' | ' + product.name" [nzValue]="product"></nz-option>
+        }
+      </nz-select>
+    </nz-col>
+    <nz-col [nzSpan]="9"></nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="2">Cantidad</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="3">
+      <input nz-input formControlName="quantity" placeholder="Cantidad" #quantityInput type="number" min="1"
+        (keydown.enter)="$event.preventDefault(); addProduct()" />
+    </nz-col>
+    <nz-col [nzSpan]="18">
+      <button nz-button nzType="primary" type="button" (click)="addProduct()" class="inline-icon-text">
+        <mat-icon>add</mat-icon>
+        Agregar
+      </button>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="24">
+      <nz-table #productTable [nzData]="addedProducts" [nzBordered]="true">
+        <thead>
+          <tr>
+            <th nzWidth="50%">Producto</th>
+            <th nzWidth="10%" class="text-end">Cantidad</th>
+            <th nzWidth="10%" class="text-end">Costo</th>
+            <th nzWidth="10%" class="text-end">Precio</th>
+            <th nzWidth="10%" class="text-end">Subtotal</th>
+            <th nzWidth="10%" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (detail of addedProducts; track $index) {
+          <tr>
+            <td>{{ detail.product.name }}</td>
+            <td class="text-end">{{ detail.quantity }}</td>
+            <td class="text-end">{{ detail.cost | currency }}</td>
+            <td class="text-end">{{ detail.price | currency }}</td>
+            <td class="text-end">{{ detail.subtotal | currency }}</td>
+            <td class="text-center">
+              <button nz-button class="btn-danger" (click)="removeProduct(detail)"><mat-icon>delete</mat-icon></button>
+            </td>
+          </tr>
+          } @empty {
+          <tr>
+            <td class="text-center" colspan="6">No hay productos agregados</td>
+          </tr>
+          }
+        </tbody>
+      </nz-table>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="2"> Total </nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="3">
+      <span class="total">{{ total | currency }}</span>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="24">
+      <button type="button" (click)="submitInvoice()">Crear Factura</button>
+    </nz-col>
+  </nz-row>
+</form>

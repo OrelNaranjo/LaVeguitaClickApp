@@ -1,10 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SelectFieldComponent } from './select-field.component';
 
 describe('SelectFieldComponent', () => {
-  let component: SelectFieldComponent;
-  let fixture: ComponentFixture<SelectFieldComponent>;
+  interface SelectOption {
+    id: number;
+    name: string;
+  }
+
+  let component: SelectFieldComponent<SelectOption>;
+  let fixture: ComponentFixture<SelectFieldComponent<SelectOption>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -1,4 +1,4 @@
-import { InvoiceRequest } from '@definitions/requests';
+import { Invoice } from '@shared/interfaces';
 
 export class LoadInvoices {
   static readonly type = '[Products] Load Products';
@@ -7,5 +7,10 @@ export class LoadInvoices {
 
 export class CreateInvoice {
   static readonly type = '[Invoices] Create Invoice';
-  constructor(public payload: InvoiceRequest) {}
+  constructor(public payload: Invoice) {}
+}
+
+export class SelectInvoice {
+  static readonly type = '[Invoice] Select';
+  constructor(public id: number) {}
 }

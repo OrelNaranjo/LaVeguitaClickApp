@@ -7,6 +7,5 @@ export { CountryState } from './country.state';
 export { RegionState } from './region.state';
 export { ProductsState } from './products.state';
 export { InvoicesState } from './invoice.state';
-export { InvoicesRequestState } from './invoice-request.state';
 export { OrdersState } from './orders.state';
 export { states } from './state';

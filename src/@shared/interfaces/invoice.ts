@@ -1,4 +1,3 @@
-import { InvoiceRequest } from '../../@definitions';
 import { Customer } from './customer';
 import { Product } from './product';
 
@@ -6,6 +5,7 @@ export interface Invoice {
   id?: number;
   date?: Date | string;
   customer: Customer;
+  customer_id: number;
   total: number;
   details: InvoiceDetail[];
 }
@@ -21,8 +21,5 @@ export interface InvoiceDetail {
 
 export interface InvoiceStateModel {
   invoices: Invoice[];
-}
-
-export interface InvoiceRequestStateModel {
-  invoices: InvoiceRequest[];
+  selectedInvoice?: Invoice;
 }

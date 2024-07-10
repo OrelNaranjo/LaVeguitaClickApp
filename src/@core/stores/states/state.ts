@@ -3,7 +3,6 @@ import { CityState } from './city.state';
 import { CommuneState } from './commune.state';
 import { CountryState } from './country.state';
 import { CustomersState } from './customers.state';
-import { InvoicesRequestState } from './invoice-request.state';
 import { InvoicesState } from './invoice.state';
 import { OrdersState } from './orders.state'
 import { ProductsState } from './products.state';
@@ -19,7 +18,6 @@ export const states = [
   CommuneState,
   ProductsState,
   InvoicesState,
-  InvoicesRequestState,
   OrdersState,
   SuppliersState
 ];

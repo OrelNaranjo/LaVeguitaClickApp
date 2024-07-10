@@ -3,7 +3,8 @@ import { State, Selector, Action, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs';
 import { Invoice, InvoiceStateModel } from '../../../@shared';
 import { InvoiceService } from '@core/services';
-import { LoadInvoices } from '../actions';
+import { CreateInvoice, LoadInvoices } from '../actions';
+import { SelectInvoice } from '../actions/invoices.action';
 
 @State<InvoiceStateModel>({
   name: 'invoices',
@@ -18,6 +19,11 @@ export class InvoicesState {
   @Selector()
   static getInvoices(state: InvoiceStateModel) {
     return state.invoices;
+  }
+
+  @Selector()
+  static getSelectedInvoice(state: InvoiceStateModel): Invoice | undefined {
+    return state.selectedInvoice;
   }
 
   @Action(LoadInvoices)
@@ -35,5 +41,26 @@ export class InvoicesState {
         }
       }),
     );
+  }
+
+  @Action(CreateInvoice)
+  createInvoice(ctx: StateContext<InvoiceStateModel>, action: CreateInvoice) {
+    return this.invoiceService.createInvoice(action.payload).pipe(
+      tap((response: Invoice) => {
+        const state = ctx.getState();
+        ctx.patchState({
+          invoices: [...state.invoices, response],
+        });
+      }),
+    );
+  }
+
+  @Action(SelectInvoice)
+  selectInvoice(ctx: StateContext<InvoiceStateModel>, action: SelectInvoice) {
+    const state = ctx.getState();
+    const selectedInvoice = state.invoices.find((invoice) => invoice.id === action.id);
+    ctx.patchState({
+      selectedInvoice: selectedInvoice,
+    });
   }
 }

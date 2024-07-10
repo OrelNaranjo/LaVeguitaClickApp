@@ -1,0 +1,21 @@
+nz-row {
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.inline-icon-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-left: 1rem;
+  .mat-icon {
+    font-size: 1.2rem !important;
+    height: auto;
+    width: auto;
+  }
+}
+
+.inline-icon-text mat-icon {
+  margin-right: 0.1rem;
+}
