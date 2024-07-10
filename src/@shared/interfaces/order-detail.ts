@@ -1,10 +1,10 @@
 import { Product } from './product'
 
 export interface OrderDetail {
-  id: number;
+  id?: number;
   product: Product;
   quantity: number;
-  cost: number;
-  price: number;
-  subtotal: number;
+  cost?: number;
+  price?: number;
+  subtotal?: number;
 }

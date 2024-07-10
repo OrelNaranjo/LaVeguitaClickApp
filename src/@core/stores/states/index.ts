@@ -1,4 +1,5 @@
 export { CustomersState } from './customers.state';
+export { SuppliersState } from './suppliers.state';
 export { AddressState } from './address.state';
 export { CityState } from './city.state';
 export { CommuneState } from './commune.state';

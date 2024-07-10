@@ -1,1 +1,102 @@
-<p>order works!</p>
+<form nz-form [formGroup]="createOrderForm" (ngSubmit)="submitOrder()">
+  <nz-row>
+    <nz-col [nzSpan]="2">Cliente</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-select formControlName="supplier" nzShowSearch nzPlaceHolder="Seleccionar Proveedor">
+        @for (supplier of suppliers$(); track $index) {
+        <nz-option [nzLabel]="supplier.rut + ' | ' + supplier.company_name" [nzValue]="supplier.id"></nz-option>
+        }
+      </nz-select>
+    </nz-col>
+    <nz-col [nzSpan]="9"></nz-col>
+  </nz-row>
+
+  <nz-row>
+    <nz-col [nzSpan]="2">Notas:</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="9">
+      <textarea nz-input formControlName="notes" placeholder="Notas adicionales"></textarea>
+    </nz-col>
+  </nz-row>
+
+  <nz-row>
+    <nz-col [nzSpan]="2">Producto</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="12">
+      <nz-select #selectInput formControlName="selectedProduct" nzShowSearch nzPlaceHolder="Seleccionar producto"
+        (keydown.enter)="focusQuantityInput()">
+        @for (product of products$(); track $index) {
+        <nz-option [nzLabel]="product.sku + ' | ' + product.name" [nzValue]="product"></nz-option>
+        }
+      </nz-select>
+    </nz-col>
+    <nz-col [nzSpan]="9"></nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="2">Cantidad</nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="3">
+      <input nz-input formControlName="quantity" placeholder="Cantidad" #quantityInput type="number" min="1"
+        (keydown.enter)="$event.preventDefault(); addProduct()" />
+    </nz-col>
+    <nz-col [nzSpan]="18">
+      <button nz-button nzType="primary" type="button" (click)="addProduct()" class="inline-icon-text">
+        <i nz-icon nzType="plus"></i>
+        Agregar
+      </button>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="24">
+      <nz-table #productTable [nzData]="addedProducts">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th class="text-end">Cantidad</th>
+            <th class="text-end">Costo</th>
+            <th class="text-end">Subtotal</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (detail of addedProducts; track $index) {
+          <tr>
+            <td>{{ detail.product.name }}</td>
+            <td class="text-end">{{ detail.quantity }}</td>
+            <td class="text-end">{{ detail.cost | currency }}</td>
+            <td class="text-end">{{ detail.subtotal | currency }}</td>
+            <td class="text-center">
+              <button nz-button class="btn-danger" (click)="$event.preventDefault(); removeProduct($index)">
+                <i nz-icon nzType="delete"></i>
+              </button>
+            </td>
+          </tr>
+          } @empty {
+          <tr>
+            <td class="text-center" colspan="5">No hay productos agregados</td>
+          </tr>
+          }
+        </tbody>
+      </nz-table>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="2"> Total </nz-col>
+    <nz-col [nzSpan]="1">:</nz-col>
+    <nz-col [nzSpan]="3">
+      <span class="total">{{ total | currency }}</span>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="24">
+      <label nz-checkbox formControlName="sendEmail" for="self" nzChecked>Enviar correo al proveedor</label>
+    </nz-col>
+  </nz-row>
+  <nz-row>
+    <nz-col [nzSpan]="24">
+      <button nz-button nzType="primary" [disabled]="!createOrderForm.valid" (click)="submitOrder()">Crear
+        Factura</button>
+    </nz-col>
+  </nz-row>
+</form>

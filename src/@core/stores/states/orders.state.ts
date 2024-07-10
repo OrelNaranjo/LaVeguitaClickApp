@@ -4,7 +4,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { LoadOrders, CreateOrder, UpdateOrder, DeleteOrder } from '../actions';
 import { tap } from 'rxjs/operators';
 import { Order, OrderStateModel } from '@shared/interfaces';
-
+import { OrderRequest } from '../../../@definitions/requests/order-request'
 
 @State<OrderStateModel>({
   name: 'orders',
@@ -43,9 +43,13 @@ export class OrdersState {
   @Action(CreateOrder)
   createOrder(ctx: StateContext<OrderStateModel>, action: CreateOrder) {
     return this.orderService.createOrder(action.payload).pipe(
-      tap((response: Order) => {
+      tap((response: OrderRequest) => {
+        const order: Order = {
+          id: 0,
+          ...response,
+        };
         ctx.patchState({
-          orders: [...ctx.getState().orders, response],
+          orders: [...ctx.getState().orders, order],
         });
       }),
     );
@@ -69,10 +73,10 @@ export class OrdersState {
 
   @Action(DeleteOrder)
   deleteOrder(ctx: StateContext<OrderStateModel>, action: DeleteOrder) {
-    return this.orderService.deleteOrder(action.payload).pipe(
+    return this.orderService.deleteOrder(action.payload.id).pipe(
       tap(() => {
         ctx.patchState({
-          orders: ctx.getState().orders.filter((order) => order.id !== action.payload),
+          orders: ctx.getState().orders.filter((order) => order.id !== action.payload.id),
         });
       }),
     );

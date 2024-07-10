@@ -1,5 +1,6 @@
 export { CreateOrder, DeleteOrder, LoadOrders, UpdateOrder } from './orders.action';
 export { LoadCustomers, CreateCustomer, UpdateCustomer, DeleteCustomer} from './customers.action';
+export { LoadSuppliers, CreateSupplier, UpdateSupplier, DeleteSupplier } from './suppliers.action';
 export { LoadAddress } from './address.action';
 export { LoadCities } from './city.action';
 export { LoadRegions } from './region.action';

@@ -1,14 +1,11 @@
+import { Account } from './account'
+import { Role } from './role'
+
 export interface User {
-  name: string;
-  lastname: string;
-  role: {
-    description: string;
-    id: number;
-    name: string;
-    privileges: {
-      id: number;
-      name: string;
-      description: string;
-    }[];
-  };
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  role: Role;
+  account: Account;
 }

@@ -8,6 +8,7 @@ import { InvoicesState } from './invoice.state';
 import { OrdersState } from './orders.state'
 import { ProductsState } from './products.state';
 import { RegionState } from './region.state';
+import { SuppliersState } from './suppliers.state'
 
 export const states = [
   CustomersState,
@@ -20,4 +21,5 @@ export const states = [
   InvoicesState,
   InvoicesRequestState,
   OrdersState,
+  SuppliersState
 ];

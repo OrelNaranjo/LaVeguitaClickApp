@@ -13,3 +13,8 @@ export interface Supplier {
   contacts: Contact[];
   addresses: Address[];
 }
+
+
+export interface SuppliersStateModel {
+  suppliers: Supplier[];
+}

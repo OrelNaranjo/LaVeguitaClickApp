@@ -4,12 +4,12 @@ import { Supplier } from './supplier'
 
 export interface Order {
   id: number;
-  orderNumber: number;
-  notes: string;
+  orderNumber?: number;
+  notes?: string;
   employee: Employee;
   supplier: Supplier;
-  date: Date;
-  total: number;
+  date?: Date;
+  total?: number;
   orderDetails: OrderDetail[];
 }
 

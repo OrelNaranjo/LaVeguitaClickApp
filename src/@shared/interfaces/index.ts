@@ -5,6 +5,7 @@ export * from './commune';
 export * from './contact';
 export * from './country';
 export * from './customer';
+export * from './supplier';
 export * from './employee-detail';
 export * from './employee';
 export * from './image';
