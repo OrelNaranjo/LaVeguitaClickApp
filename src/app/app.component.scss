@@ -1,4 +1,4 @@
-@import '../vars.scss';
+@use '../styles.scss' as *;
 
 .grid-container {
   display: grid;

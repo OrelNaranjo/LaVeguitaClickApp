@@ -1,4 +1,4 @@
-@import '../../../../vars.scss';
+@use '../../../../styles.scss' as *;
 
 .container {
   display: flex;
@@ -29,7 +29,7 @@
     margin-top: 20px;
     font-size: 1.8rem;
     color: hsl(70, 90%, 45%);
-    font-family: 'Kalam';
+    font-family: 'Kalam', sans-serif;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
     white-space: nowrap;
   }

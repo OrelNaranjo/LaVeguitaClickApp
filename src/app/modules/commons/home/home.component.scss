@@ -1,4 +1,4 @@
-@import '../../../../vars.scss';
+@use './../../../../styles.scss' as *;
 
 .welcome-container {
   align-items: center;

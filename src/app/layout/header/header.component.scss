@@ -1,4 +1,4 @@
-@import '../../../vars.scss';
+@use '../../../styles.scss' as *;
 
 .logo {
   background-color: $bg-header;
@@ -13,7 +13,7 @@
     margin-top: 15px;
     font-size: 1.8rem;
     color: $txt-green;
-    font-family: 'Kalam';
+    font-family: 'Kalam', sans-serif;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
   }
 
