@@ -2,7 +2,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { Component, ElementRef, ViewChild, OnInit, Signal, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Customer, Invoice, InvoiceDetail, Product } from '@shared/interfaces';
-import { NzFormControlComponent, NzFormItemComponent, NzFormLabelComponent } from 'ng-zorro-antd/form';
 import { NzOptionComponent, NzSelectComponent } from 'ng-zorro-antd/select';
 import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { NzTableComponent } from 'ng-zorro-antd/table';
@@ -10,28 +9,14 @@ import { NzColDirective, NzGridModule } from 'ng-zorro-antd/grid';
 import { CurrencyPipe } from '@core/pipes';
 import { TitleService } from '@core/services';
 import { Store } from '@ngxs/store';
-import { LoadCustomers, LoadProducts } from '@core/stores';
+import { LoadCustomers, LoadProducts, CreateInvoice } from '@core/stores';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import { CreateInvoice } from '@core/stores';
 
 @Component({
   selector: 'app-invoice',
   standalone: true,
-  imports: [
-    CurrencyPipe,
-    NzColDirective,
-    NzFormControlComponent,
-    NzFormItemComponent,
-    NzFormLabelComponent,
-    NzSelectComponent,
-    NzDatePickerComponent,
-    NzOptionComponent,
-    NzTableComponent,
-    ReactiveFormsModule,
-    MatIconModule,
-    NzGridModule,
-  ],
+  imports: [CurrencyPipe, NzColDirective, NzSelectComponent, NzOptionComponent, NzTableComponent, ReactiveFormsModule, MatIconModule, NzGridModule],
   templateUrl: './invoice.component.html',
   styleUrl: './invoice.component.scss',
 })
@@ -46,10 +31,10 @@ export class InvoiceComponent implements OnInit, AfterViewInit {
   total = 0;
 
   constructor(
-    private fb: FormBuilder,
-    private titleService: TitleService,
-    private store: Store,
-    private router: Router,
+    private readonly fb: FormBuilder,
+    private readonly titleService: TitleService,
+    private readonly store: Store,
+    private readonly router: Router,
   ) {
     this.titleService.setTitle('Crear factura');
     this.store.dispatch(new LoadCustomers());
@@ -115,7 +100,7 @@ export class InvoiceComponent implements OnInit, AfterViewInit {
           subtotal: subtotal,
         })),
       };
-      console.log(newInvoice)
+      console.log(newInvoice);
       this.store.dispatch(new CreateInvoice(newInvoice));
       this.resetForm();
       this.router.navigate(['/sales/invoices']);

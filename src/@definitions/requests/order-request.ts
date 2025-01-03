@@ -1,4 +1,4 @@
-import { Employee, Product, Supplier } from '../../@shared'
+import { Employee, Product, Supplier } from '../../@shared';
 
 export interface OrderRequest {
   notes: string;

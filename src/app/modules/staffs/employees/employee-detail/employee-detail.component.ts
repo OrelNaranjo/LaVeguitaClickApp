@@ -9,7 +9,7 @@ import { Employee } from '@shared/interfaces';
 @Component({
   selector: 'app-employee-detail',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe, DatePipe, RouterLink],
+  imports: [CurrencyPipe, DatePipe, RouterLink],
   templateUrl: './employee-detail.component.html',
   styleUrl: './employee-detail.component.scss',
 })
@@ -18,9 +18,9 @@ export class EmployeeDetailComponent {
   employee$ = toSignal<Employee>(this.employeeService.getEmployee(this.id));
 
   constructor(
-    private titleService: TitleService,
-    private employeeService: EmployeeService,
-    private route: ActivatedRoute,
+    private readonly titleService: TitleService,
+    private readonly employeeService: EmployeeService,
+    private readonly route: ActivatedRoute,
   ) {
     this.titleService.setTitle('Detalles del empleado');
   }

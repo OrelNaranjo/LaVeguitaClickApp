@@ -1,17 +1,15 @@
 import { ProductCreationRequest, ProductResponse, Category } from '@shared/interfaces';
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, TitleService } from '@core/services';
-import { AsyncPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [ReactiveFormsModule, AsyncPipe, MatIconModule, FormsModule],
+  imports: [ReactiveFormsModule, MatIconModule, FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })
@@ -24,10 +22,9 @@ export class ProductComponent {
   dropdownOpen = false;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private productService: ProductService,
-    private titleService: TitleService,
-    private route: ActivatedRoute,
+    private readonly formBuilder: FormBuilder,
+    private readonly productService: ProductService,
+    private readonly titleService: TitleService,
   ) {
     this.titleService.setTitle('Nuevo Producto');
   }

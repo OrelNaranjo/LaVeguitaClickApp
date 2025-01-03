@@ -11,7 +11,6 @@ import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
 import { NzTableComponent } from 'ng-zorro-antd/table';
 import { NzCheckboxComponent } from 'ng-zorro-antd/checkbox';
-import { NzFormLabelComponent } from 'ng-zorro-antd/form'
 
 @Component({
   selector: 'app-order',
@@ -26,7 +25,6 @@ import { NzFormLabelComponent } from 'ng-zorro-antd/form'
     ReactiveFormsModule,
     CurrencyPipe,
     NzCheckboxComponent,
-    NzFormLabelComponent,
   ],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss',
@@ -42,11 +40,11 @@ export class OrderComponent implements OnInit, AfterViewInit {
   total = 0;
 
   constructor(
-    private fb: FormBuilder,
-    private titleService: TitleService,
-    private store: Store,
-    private router: Router,
-    private authService: AuthService,
+    private readonly fb: FormBuilder,
+    private readonly titleService: TitleService,
+    private readonly store: Store,
+    private readonly router: Router,
+    private readonly authService: AuthService,
   ) {
     this.titleService.setTitle('Nuevo pedido');
     this.store.dispatch(new LoadSuppliers());
@@ -93,7 +91,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
     if (this.createOrderForm.valid && this.addedProducts.length > 0 && this.createOrderForm.value.supplier) {
       const newOrder: OrderRequest = {
         supplier: this.createOrderForm.value.supplier,
-        employee: this.authService.getUser()!.employee as Employee,
+        employee: this.authService.getUser()!.employee,
         notes: this.createOrderForm.value?.notes,
         sendEmail: this.createOrderForm.value?.sendEmail,
         orderDetails: this.addedProducts.map(({ product, quantity }) => ({

@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { AddressComponent } from './address.component'
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AddressComponent } from './address.component';
 
 describe('AddressesComponent', () => {
   let component: AddressComponent;

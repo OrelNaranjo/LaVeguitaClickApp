@@ -14,7 +14,6 @@ export interface Supplier {
   addresses: Address[];
 }
 
-
 export interface SuppliersStateModel {
   suppliers: Supplier[];
 }

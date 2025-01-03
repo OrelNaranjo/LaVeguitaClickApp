@@ -1,4 +1,4 @@
-import { Privilege } from './privilege'
+import { Privilege } from './privilege';
 
 export interface Role {
   id: number;

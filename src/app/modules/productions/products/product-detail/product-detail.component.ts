@@ -1,11 +1,11 @@
 import { CurrencyPipe } from '@core/pipes';
 import { Component } from '@angular/core';
-import { QRCodeModule } from 'angularx-qrcode';
+import { QRCodeComponent } from 'angularx-qrcode';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [QRCodeModule, CurrencyPipe],
+  imports: [QRCodeComponent, CurrencyPipe],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
 })

@@ -1,7 +1,7 @@
-import { Order } from '@shared/interfaces'
-import { OrderRequest } from '../../../@definitions/requests/order-request'
+import { Order } from '@shared/interfaces';
+import { OrderRequest } from '../../../@definitions/requests/order-request';
 
-export class LoadOrders{
+export class LoadOrders {
   static readonly type = '[Orders] Load Orders';
   constructor(public force = false) {}
 }

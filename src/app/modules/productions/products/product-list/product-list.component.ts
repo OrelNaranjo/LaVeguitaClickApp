@@ -6,7 +6,7 @@ import { TitleService } from '@core/services';
 import { Store } from '@ngxs/store';
 import { CurrencyPipe, DeleteProduct, LoadProducts } from '../../../../../@core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { NzIconDirective } from 'ng-zorro-antd/icon'
+import { NzIconDirective } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-product-list',

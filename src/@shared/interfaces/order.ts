@@ -1,6 +1,6 @@
-import { Employee } from './employee'
-import { OrderDetail } from './order-detail'
-import { Supplier } from './supplier'
+import { Employee } from './employee';
+import { OrderDetail } from './order-detail';
+import { Supplier } from './supplier';
 
 export interface Order {
   id: number;

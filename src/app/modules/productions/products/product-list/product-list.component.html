@@ -1,5 +1,5 @@
 <div class="text-end mb1">
-  <button [routerLink]="['/products', 'new']"><i nz-icon nzType="plus"  nzTheme="outline"></i><span>Nuevo Producto</span></button>
+  <button [routerLink]="['/products', 'new']"><i nz-icon nzType="plus" nzTheme="outline"></i><span>Nuevo Producto</span></button>
 </div>
 
 <table class="table table-striped table-bordered">
@@ -18,7 +18,9 @@
       <tr [ngClass]="{ 'table-danger': !product.is_active }">
         <td>
           <img class="product-img" *ngIf="product.images.length > 0; else defaultImage" [src]="product.images[0].url" [alt]="product.name" />
-          <ng-template #defaultImage> <span class="no-img">Sin Imagen</span><i class="no-img-icon" nz-icon nzType="camera" nzTheme="outline"></i></ng-template>
+          <ng-template #defaultImage>
+            <span class="no-img">Sin Imagen</span><i class="no-img-icon" nz-icon nzType="camera" nzTheme="outline"></i
+          ></ng-template>
         </td>
         <td>{{ product.sku }}</td>
         <td>{{ product.name }}</td>

@@ -3,7 +3,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { LoadSuppliers, CreateSupplier, UpdateSupplier, DeleteSupplier } from '../actions';
 import { tap } from 'rxjs/operators';
 import { Supplier, SuppliersStateModel } from '@shared/interfaces';
-import { SupplierService } from '../../services/suppliers/supplier.service'
+import { SupplierService } from '../../services/suppliers/supplier.service';
 
 @State<SuppliersStateModel>({
   name: 'suppliers',

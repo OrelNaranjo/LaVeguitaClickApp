@@ -7,16 +7,13 @@ import { Commune, Region, City, Address } from '@shared/interfaces';
 import { LoadCountries, LoadRegions, LoadCities, LoadCommunes, CountryState, RegionState, CityState, CommuneState } from '../../@core';
 import { Observable, of } from 'rxjs';
 import { map, switchMap, startWith } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
 import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
-import { NzFormControlComponent } from 'ng-zorro-antd/form'
+import { NzFormControlComponent } from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-addresses',
   standalone: true,
-  imports: [
-    NzFormControlComponent,
-    ReactiveFormsModule, SelectFieldComponent, AsyncPipe, NzColDirective, NzRowDirective],
+  imports: [NzFormControlComponent, ReactiveFormsModule, SelectFieldComponent, NzColDirective, NzRowDirective],
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.scss'],
 })
@@ -45,10 +42,9 @@ export class AddressComponent {
   @Output() addressCancel = new EventEmitter();
 
   constructor(
-    private fb: FormBuilder,
-    private store: Store,
+    private readonly fb: FormBuilder,
+    private readonly store: Store,
   ) {
-
     this.addressForm = new FormGroup({
       street: new FormControl('', Validators.required),
       zip_code: new FormControl('', Validators.required),
@@ -148,11 +144,11 @@ export class AddressComponent {
     this.addressCancel.emit();
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-    if (isDisabled) {
-      this.addressForm.disable();
-    } else {
-      this.addressForm.enable();
-    }
+  disableForm(): void {
+    this.addressForm.disable();
+  }
+
+  enableForm(): void {
+    this.addressForm.enable();
   }
 }

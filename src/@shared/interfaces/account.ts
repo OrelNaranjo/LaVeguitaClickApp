@@ -1,5 +1,5 @@
-import { Employee } from './employee'
-import { Role } from './role'
+import { Employee } from './employee';
+import { Role } from './role';
 
 export interface Account {
   id: number;
@@ -8,5 +8,5 @@ export interface Account {
   username: string;
   email: string;
   employee: Employee;
-  roles: Role[]
+  roles: Role[];
 }

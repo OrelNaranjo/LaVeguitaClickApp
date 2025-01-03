@@ -7,8 +7,6 @@ import { NzTableComponent } from 'ng-zorro-antd/table';
 import { NzOptionComponent, NzSelectComponent } from 'ng-zorro-antd/select';
 import { Product, ReceiptDetail } from '@shared/interfaces';
 import { FormsModule } from '@angular/forms';
-import { AsyncPipe } from '@angular/common';
-import { NzDropDownDirective } from 'ng-zorro-antd/dropdown';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
 import { Store } from '@ngxs/store';
@@ -26,8 +24,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
     NzSelectComponent,
     NzOptionComponent,
     FormsModule,
-    AsyncPipe,
-    NzDropDownDirective,
     NzIconDirective,
   ],
   providers: [NzMessageService],
@@ -43,9 +39,9 @@ export class CreateReceiptComponent {
   selectedQuantity = 1;
 
   constructor(
-    private titleService: TitleService,
-    private messageService: NzMessageService,
-    private store: Store,
+    private readonly titleService: TitleService,
+    private readonly messageService: NzMessageService,
+    private readonly store: Store,
   ) {
     this.titleService.setTitle('Crear Boleta');
     this.products$ = toSignal(this.store.select((state) => state.products.products));

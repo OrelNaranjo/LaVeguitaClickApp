@@ -4,7 +4,7 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { LoadOrders, CreateOrder, UpdateOrder, DeleteOrder } from '../actions';
 import { tap } from 'rxjs/operators';
 import { Order, OrderStateModel } from '@shared/interfaces';
-import { OrderRequest } from '../../../@definitions/requests/order-request'
+import { OrderRequest } from '../../../@definitions/requests/order-request';
 
 @State<OrderStateModel>({
   name: 'orders',

@@ -1,37 +1,37 @@
 <nz-card nzTitle="Detalles de la Factura" class="invoice-detail-card">
   @if (invoice$()) {
-  <p><strong>Fecha:</strong> {{invoice$().date | date}}</p>
-  <p><strong>Cliente:</strong> {{invoice$().customer.first_name + ' ' + invoice$().customer.last_name}}</p>
-  <nz-table #detailsTable nzBordered>
-    <thead>
-      <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Costo</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (detail of invoice$().details; track $index){
+    <p><strong>Fecha:</strong> {{ invoice$().date | date }}</p>
+    <p><strong>Cliente:</strong> {{ invoice$().customer.first_name + ' ' + invoice$().customer.last_name }}</p>
+    <nz-table #detailsTable nzBordered>
+      <thead>
         <tr>
-          <td>{{detail.product.name}}</td>
-          <td>{{detail.quantity}}</td>
-          <td>{{detail.price | currency}}</td>
-          <td>{{detail.cost | currency}}</td>
-          <td>{{detail.subtotal | currency}}</td>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Costo</th>
+          <th>Subtotal</th>
         </tr>
-      }@empty {
-        <tr>
-          <td colspan="5">No hay detalles en esta factura.</td>
-        </tr>
-      }
-    </tbody>
-  </nz-table>
-  <br>
-  <p><strong>Total:</strong> {{invoice$().total | currency}}</p>
-}@else {
-  <p>No se ha seleccionado ninguna factura.</p>
-}
+      </thead>
+      <tbody>
+        @for (detail of invoice$().details; track $index) {
+          <tr>
+            <td>{{ detail.product.name }}</td>
+            <td>{{ detail.quantity }}</td>
+            <td>{{ detail.price | currency }}</td>
+            <td>{{ detail.cost | currency }}</td>
+            <td>{{ detail.subtotal | currency }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5">No hay detalles en esta factura.</td>
+          </tr>
+        }
+      </tbody>
+    </nz-table>
+    <br />
+    <p><strong>Total:</strong> {{ invoice$().total | currency }}</p>
+  } @else {
+    <p>No se ha seleccionado ninguna factura.</p>
+  }
 </nz-card>
 <button type="button" routerLink="/sales/invoices">Volver</button>

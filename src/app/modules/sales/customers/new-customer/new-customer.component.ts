@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Address } from '@shared/interfaces';
-import { NzFormDirective } from 'ng-zorro-antd/form';
 import { NzColDirective, NzRowDirective } from 'ng-zorro-antd/grid';
 import { TitleService } from '@core/services';
 import { Router } from '@angular/router';
@@ -14,7 +13,7 @@ import { NzTableComponent } from 'ng-zorro-antd/table';
 @Component({
   selector: 'app-new-customer',
   standalone: true,
-  imports: [ReactiveFormsModule, AddressComponent, NzFormDirective, NzTableComponent, NzRowDirective, NzColDirective, MatIconModule],
+  imports: [ReactiveFormsModule, AddressComponent, NzTableComponent, NzRowDirective, NzColDirective, MatIconModule],
   templateUrl: './new-customer.component.html',
   styleUrls: ['./new-customer.component.scss'],
 })
@@ -24,10 +23,10 @@ export class NewCustomerComponent {
   showAddress = false;
 
   constructor(
-    private fb: FormBuilder,
-    private titleService: TitleService,
-    private router: Router,
-    private store: Store,
+    private readonly fb: FormBuilder,
+    private readonly titleService: TitleService,
+    private readonly router: Router,
+    private readonly store: Store,
   ) {
     this.titleService.setTitle('Nuevo cliente');
     this.customerForm = this.fb.group({

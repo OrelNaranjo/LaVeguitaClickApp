@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UpperCasePipe, DatePipe, TitleCasePipe, AsyncPipe } from '@angular/common';
 import { TitleService } from '@core/services';
 import { MatIconModule } from '@angular/material/icon';
-import { interval, map, Observable } from 'rxjs'
+import { interval, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
